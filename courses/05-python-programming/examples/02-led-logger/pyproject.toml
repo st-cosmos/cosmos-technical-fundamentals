@@ -1,0 +1,9 @@
+# uv 로 관리하는 프로젝트 설정입니다. 표준 라이브러리만 사용해 의존성이 없습니다.
+# - 실행:  uv run main.py
+[project]
+name = "led-logger"
+version = "0.1.0"
+description = "05 Python — 예제 02: LED 이력 기록기 (콘솔, JSON 저장)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []

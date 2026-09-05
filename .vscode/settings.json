@@ -1,0 +1,6 @@
+{
+  "// 설명": "Marp for VS Code 확장이 공통 테마(shared/marp-theme.css)를 인식하도록 등록합니다.",
+  "markdown.marp.themes": ["./shared/marp-theme.css"],
+  "markdown.marp.enableHtml": true,
+  "files.eol": "\n"
+}

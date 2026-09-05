@@ -1,0 +1,48 @@
+# 주의: .gitignore는 "줄 끝 주석"을 지원하지 않습니다.
+# 주석은 반드시 줄 맨 앞에서 # 로 시작해야 합니다.
+
+# ---- 슬라이드/문서 빌드 결과물 (원본 Markdown만 관리) ----
+*.pdf
+*.html
+*.pptx
+# 단, 예제 코드의 HTML(웹 페이지)은 커밋합니다
+!courses/**/examples/**/*.html
+
+# ---- Node (Marp CLI) ----
+node_modules/
+npm-debug.log*
+
+# ---- Python (uv 프로젝트) ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- PlatformIO (ESP32) ----
+.pio/
+.pioenvs/
+.piolibdeps/
+# WiFi 비밀정보 — 절대 커밋 금지 (config.example.h 만 공유)
+config.h
+
+# ---- 비밀정보 ----
+.env
+*.local
+
+# ---- OS 생성 파일 ----
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ---- 에디터/IDE ----
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+
+# ---- 작업 메모 (강좌 제작용 입력, 배포 대상 아님) ----
+agent-prompts/
+
+# ---- 작업 중 생성 파일 ----
+history.json

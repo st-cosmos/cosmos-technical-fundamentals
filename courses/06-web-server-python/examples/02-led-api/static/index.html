@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED 제어판 — polling</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="panel">
+    <h1>💡 LED 제어판</h1>
+    <p class="hint">
+      창을 2개 열어 보세요. 한 쪽에서 바꾸면 1초 안에 다른 쪽에도 반영됩니다.
+      ESP32 보드도 같은 서버를 보고 실제 LED를 켭니다.
+    </p>
+
+    <div id="lamp" class="lamp off">OFF</div>
+    <p id="status" class="status">아직 아무도 바꾸지 않았습니다.</p>
+
+    <div class="controls">
+      <input id="name" class="name" placeholder="이름" autocomplete="off" />
+      <button id="on" class="btn on">켜기</button>
+      <button id="off" class="btn off">끄기</button>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

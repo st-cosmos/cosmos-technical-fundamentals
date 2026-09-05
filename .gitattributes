@@ -1,0 +1,43 @@
+# ============================================================
+# 줄바꿈(line ending) 통일 설정 — Windows/macOS/Linux 혼재 팀 필수
+# ------------------------------------------------------------
+# Windows는 줄 끝이 CRLF, macOS/Linux는 LF 입니다. 이 차이를 그대로 두면
+# "내용은 똑같은데 파일 전체가 바뀐 것처럼" 보이는 diff와 불필요한 conflict가
+# 생깁니다. 아래 설정은 "저장소에는 항상 LF로 저장"하도록 강제해서 이 문제를
+# 원천 차단합니다. (각 OS 작업폴더에서는 자동 변환됩니다)
+# ============================================================
+
+# 기본: 텍스트 파일은 Git이 자동 판별하고, 저장소에는 LF로 정규화
+* text=auto eol=lf
+
+# 명시적으로 텍스트로 다룰 파일들
+*.md       text eol=lf
+*.txt      text eol=lf
+*.json     text eol=lf
+*.toml     text eol=lf
+*.yml      text eol=lf
+*.yaml     text eol=lf
+*.js       text eol=lf
+*.mjs      text eol=lf
+*.ts       text eol=lf
+*.css      text eol=lf
+*.html     text eol=lf
+*.py       text eol=lf
+*.cpp      text eol=lf
+*.h        text eol=lf
+*.ini      text eol=lf
+*.sh       text eol=lf
+
+# Windows 전용 스크립트는 CRLF 유지 (LF로 바꾸면 동작 안 할 수 있음)
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+*.ps1      text eol=crlf
+
+# 바이너리 — 절대 변환하지 않음 (변환 시 파일 깨짐)
+*.png      binary
+*.jpg      binary
+*.jpeg     binary
+*.gif      binary
+*.pdf      binary
+*.pptx     binary
+*.zip      binary

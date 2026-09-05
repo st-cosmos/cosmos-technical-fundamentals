@@ -1,0 +1,11 @@
+# uv 로 관리하는 프로젝트 설정입니다. (동아리 공통: 패키지·프로젝트·가상환경 관리 = uv)
+# - 실행:  uv run uvicorn main:app --reload
+[project]
+name = "static-hosting"
+version = "0.1.0"
+description = "06 웹서버 — 예제 01: FastAPI 최소 서버 + LED 제어판 정적 파일 호스팅"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+]

@@ -1,0 +1,13 @@
+# uv 로 관리하는 프로젝트 설정입니다. (동아리 공통: 패키지·프로젝트·가상환경 관리 = uv)
+# - 의존성 추가:  uv add <패키지>
+# - 실행:        uv run main.py
+# - 환경 재현:   uv sync
+[project]
+name = "hello-uv"
+version = "0.1.0"
+description = "05 Python — 예제 01: uv 첫 프로젝트 (패키지 하나 추가)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cowsay>=6.1",
+]

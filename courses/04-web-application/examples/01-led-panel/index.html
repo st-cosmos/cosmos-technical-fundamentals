@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED 제어판 — 예제 01</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>💡 LED 제어판</h1>
+    <p class="hint">
+      이름을 넣고 <b>켜기 / 끄기</b> 를 누르면 표시등이 바뀌고, 아래에 기록이 쌓입니다.
+      (아직 서버 없이 <b>내 화면 안에서만</b> 동작해요.)
+    </p>
+
+    <div id="lamp" class="lamp off">OFF</div>
+
+    <div class="input-row">
+      <input id="name" placeholder="이름" autocomplete="off" />
+      <button id="on" class="btn on">켜기</button>
+      <button id="off" class="btn off">끄기</button>
+    </div>
+
+    <ul id="history" class="list"></ul>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

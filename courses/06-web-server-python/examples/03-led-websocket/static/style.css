@@ -1,0 +1,73 @@
+:root {
+  --accent: #6b4e9e; /* 단체 메인 컬러 */
+  --line: #e8e4f0;
+  --ink: #1b1b1f;
+  --muted: #6c6c78;
+  --on: #f5b301;  /* LED 켜졌을 때 (노랑) */
+  --off: #cfc9dc; /* LED 꺼졌을 때 (회보라) */
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  background: #f6f5f9;
+  color: var(--ink);
+  margin: 0;
+  padding: 32px 16px;
+}
+
+.panel {
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+h1 { margin: 0 0 4px; font-size: 24px; }
+.hint { color: var(--muted); font-size: 13px; margin: 0 0 20px; line-height: 1.5; }
+
+/* LED 표시등 */
+.lamp {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 8px auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 22px;
+  border: 6px solid var(--line);
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+.lamp.on  { background: var(--on);  color: #4a3a00; box-shadow: 0 0 32px var(--on); }
+.lamp.off { background: var(--off); color: #6c6c78; }
+
+.status { color: var(--muted); font-size: 14px; margin: 0 0 20px; min-height: 20px; }
+
+.controls { display: flex; gap: 8px; justify-content: center; }
+.name { flex: 1; }
+
+input {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 15px;
+}
+input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+
+.btn {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn.on  { background: var(--accent); }
+.btn.off { background: #9a92ad; }
+.btn:hover { filter: brightness(1.08); }

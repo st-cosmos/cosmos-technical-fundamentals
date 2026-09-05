@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LED 제어판 — WebSocket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="panel">
+    <h1>💡 LED 제어판 <span class="badge">WebSocket</span></h1>
+    <p class="hint">
+      창을 2개 열어 보세요. 한 쪽에서 바꾸면 다른 쪽이 <b>즉시</b> 바뀝니다 (polling 없음).
+      F12 → Network → WS 에서 오가는 메시지를 볼 수 있습니다.
+    </p>
+
+    <div id="lamp" class="lamp off">OFF</div>
+    <p id="status" class="status">아직 아무도 바꾸지 않았습니다.</p>
+
+    <div class="controls">
+      <input id="name" class="name" placeholder="이름" autocomplete="off" />
+      <button id="on" class="btn on">켜기</button>
+      <button id="off" class="btn off">끄기</button>
+    </div>
+
+    <p id="conn" class="conn">연결 중…</p>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

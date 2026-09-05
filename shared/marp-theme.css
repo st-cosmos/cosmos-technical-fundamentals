@@ -1,0 +1,77 @@
+/* @theme cosmos */
+/*
+  COSMOS 공통 슬라이드 테마 (Marp)
+  ------------------------------------------------------------
+  모든 강좌 슬라이드가 이 파일 하나를 공유합니다.
+  - 슬라이드 frontmatter:  theme: cosmos
+  - CLI 빌드:              marp --theme-set shared/marp-theme.css ...  (scripts/build-slides.mjs 가 자동 지정)
+  - VS Code 확장:          .vscode/settings.json 의 markdown.marp.themes 에 등록됨
+
+  "예쁜 배포용 템플릿"으로 교체할 때는 이 파일만 바꾸면 전체 강좌에 반영됩니다.
+  강조색은 --accent 한 줄만 바꾸면 됩니다.
+*/
+@import "default";
+
+:root {
+  --accent: #6b4e9e;       /* 메인 보라 (단체 메인 컬러) */
+  --accent-soft: #f1ecf7;  /* 아주 옅은 보라 — 배경 틴트용 */
+  --ink: #1b1b1f;          /* 본문 글자 (거의 검정) */
+  --muted: #6c6c78;        /* 보조 글자 (회색) */
+  --line: #e8e4f0;         /* 옅은 구분선 */
+}
+
+section {
+  font-family: "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+  font-size: 26px;
+  color: var(--ink);
+  background: #ffffff;
+  padding: 56px 68px;
+  letter-spacing: -0.005em;
+}
+h1, h2, h3 { color: var(--ink); font-weight: 700; }
+h2 {
+  border-left: 5px solid var(--accent);
+  padding-left: 14px;
+  margin-bottom: 0.55em;
+}
+a { color: var(--accent); text-decoration: none; }
+code { background: #f4f3f7; border-radius: 4px; padding: 1px 5px; }
+pre code { background: none; padding: 0; }
+pre { font-size: 21px; line-height: 1.4; }
+table { font-size: 22px; border-collapse: collapse; }
+th { background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+td, th { border: 1px solid var(--line); padding: 6px 12px; }
+blockquote { border-left: 4px solid var(--accent-soft); color: var(--muted); }
+section::after { color: var(--accent); font-weight: 600; }   /* 페이지 번호 */
+footer { color: #b3acc2; font-size: 14px; letter-spacing: 0.04em; }
+.small { font-size: 20px; color: var(--muted); }
+.cols { display: flex; gap: 28px; }
+.cols > * { flex: 1; }
+img { max-width: 100%; max-height: 520px; display: block; margin: 0 auto; }
+
+/* ===== 표지 ===== */
+section.cover { padding: 92px 80px; }
+section.cover::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 10px; background: var(--accent);
+}
+section.cover .eyebrow {
+  color: var(--accent); font-size: 19px; font-weight: 700;
+  letter-spacing: 0.22em; margin-bottom: 30px;
+}
+section.cover h1 { font-size: 78px; margin: 0; letter-spacing: -0.02em; }
+section.cover .rule { width: 88px; height: 4px; background: var(--accent); margin: 26px 0; }
+section.cover .subtitle { font-size: 30px; color: var(--muted); font-weight: 400; }
+section.cover .meta { font-size: 19px; color: var(--muted); line-height: 1.7; margin-top: 56px; }
+section.cover .brand {
+  position: absolute; left: 80px; bottom: 52px;
+  font-size: 15px; color: #a59db8; letter-spacing: 0.1em;
+}
+
+/* ===== 섹션 구분 슬라이드 ===== */
+section.section { background: var(--accent-soft); }
+section.section .eyebrow {
+  color: var(--accent); font-size: 22px; font-weight: 700; letter-spacing: 0.16em;
+}
+section.section h1 { font-size: 56px; margin-top: 6px; }
+section.section .lead-sub { color: var(--muted); font-size: 26px; }

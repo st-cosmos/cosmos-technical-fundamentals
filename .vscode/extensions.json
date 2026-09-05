@@ -1,0 +1,10 @@
+{
+  "// 설명": "이 폴더를 VS Code로 열면 아래 확장 설치를 추천받습니다.",
+  "recommendations": [
+    "marp-team.marp-vscode",
+    "mhutchie.git-graph",
+    "platformio.platformio-ide",
+    "ms-python.python",
+    "ritwickdey.LiveServer"
+  ]
+}

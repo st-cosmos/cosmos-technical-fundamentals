@@ -1,0 +1,97 @@
+/*
+  LED 제어판 — 참고 스타일 (디자인 시안 preview.png 을 코드로 옮긴 것)
+  디자인 토큰(색·간격)을 아래 :root 변수로 모아 두었습니다.
+  → 여러분의 '다른 디자인'을 만들 때 이 변수들만 바꿔도 분위기가 확 달라집니다.
+*/
+:root {
+  --bg: #f6f5f9;       /* 페이지 배경 */
+  --card: #ffffff;     /* 카드 배경 */
+  --accent: #6b4e9e;   /* 포인트 색(보라) — 단체 메인 컬러 */
+  --ink: #1b1b1f;      /* 본문 글자 */
+  --muted: #6c6c78;    /* 보조 글자 */
+  --line: #e8e4f0;     /* 옅은 테두리 */
+  --on: #f5b301;       /* 켜짐(노랑) */
+  --off: #cfc9dc;      /* 꺼짐(회보라) */
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  font-family: 'Segoe UI', 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+  color: var(--ink);
+}
+
+.card {
+  width: 400px;
+  max-width: 100%;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(107, 78, 158, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.title { margin: 0; font-size: 24px; font-weight: 700; }
+.subtitle { margin: -10px 0 0; font-size: 13px; color: var(--muted); }
+
+/* 표시등 */
+.lamp-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.lamp {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--off);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.lamp.is-on {
+  background: radial-gradient(circle at 35% 30%, #ffe08a, var(--on));
+  box-shadow: 0 0 0 8px rgba(245, 179, 1, 0.18), 0 0 28px rgba(245, 179, 1, 0.55);
+}
+.lamp-label { font-size: 15px; font-weight: 700; }
+
+/* 입력칸 */
+.name-input {
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+}
+.name-input:focus { border-color: var(--accent); }
+.name-input::placeholder { color: #9a94a8; }
+
+/* 버튼 */
+.buttons { display: flex; gap: 10px; }
+.btn {
+  flex: 1;
+  height: 44px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.btn-on { background: var(--accent); color: #fff; }
+.btn-on:hover { filter: brightness(1.05); }
+.btn-off { background: #fff; color: var(--ink); border-color: var(--line); }
+.btn-off:hover { background: #faf9fc; }
+
+/* 이력 */
+.history-title { margin: 6px 0 0; font-size: 14px; font-weight: 700; color: var(--accent); }
+.history { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.history li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex: 0 0 auto; }
+.dot.on { background: var(--on); }
+.dot.off { background: var(--off); }
