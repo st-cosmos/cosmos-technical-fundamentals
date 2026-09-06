@@ -352,8 +352,7 @@ if (http.GET() == 200) {
 http.end();
 ```
 
-> 비밀정보(SSID/비번/주소)는 **`config.h`** 로 분리 → git 제외 · ESP32 는 **2.4GHz 만** · 서버는 `--host 0.0.0.0`
-> 서버 = 06 강좌 완성 예제를 `uv run` 으로 **실행만** (코드는 06 에서 배움)
+<div class="small">비밀정보(SSID/비번/주소)는 <code>config.h</code> 로 분리 → git 제외 · ESP32 는 <b>2.4GHz 만</b> · 서버는 06 강좌 완성 예제를 <code>uv run … --host 0.0.0.0</code> 으로 <b>실행만</b> (코드는 06 에서)</div>
 
 ---
 
