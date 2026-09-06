@@ -55,8 +55,4 @@ if (Serial.available() > 0) {                  // 받은 글자가 있나?
 | 글자가 깨짐(외계어) | 속도 115200 일치 확인 ([docs/07](../docs/07-serial-communication.md)) |
 | 입력창이 안 보임 | PlatformIO 모니터 터미널에 직접 타이핑 후 Enter |
 
-## 🎓 마무리
-
-축하합니다! **디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial** — ESP32 기본 한 바퀴를 모두 직접 해봤습니다.
-
-➡️ (선택) [실습 06. WiFi 로 웹서버의 LED 따라 켜기](06-wifi-led-client.md) — 06-web-server-python 강좌를 마친 뒤 도전
+➡️ 다음: [실습 06. WiFi 로 웹서버의 LED 따라 켜기 ★](06-wifi-led-client.md) — 이 강좌의 마무리 실습

@@ -10,14 +10,14 @@
 | 00 | [dev-environment-setup](courses/00-dev-environment-setup/) | Windows/macOS 도구 일괄 설치 스크립트 + 확인 · Codex 로그인 | 설치·확인 스크립트 |
 | 01 | [cli](courses/01-cli/) | 터미널 · `pwd`/`ls`/`cd`/`mkdir` · **절대/상대 경로** · `ipconfig` 로 내 IP | — |
 | 02 | [git](courses/02-git/) | 버전 관리 · git-flow · rebase · **conflict 해결** · GitHub 협업 설정 | — |
-| 03 | [esp32-programming](courses/03-esp32-programming/) | 디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial (+선택: WiFi) | PlatformIO 프로젝트 6개 |
+| 03 | [esp32-programming](courses/03-esp32-programming/) | 디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial · WiFi + HTTP | PlatformIO 프로젝트 6개 |
 | 04 | [web-application](courses/04-web-application/) | HTML · CSS · JavaScript · **주요 태그/문법 치트시트** | LED 제어판 (정적) |
 | 05 | [python-programming](courses/05-python-programming/) | **uv** 사용법 · Python 기초 문법 요약 | uv 프로젝트 2개 |
 | 06 | [web-server-python](courses/06-web-server-python/) | FastAPI · **정적 파일 호스팅 · REST API · WebSocket** | FastAPI 서버 3개 |
 | 07 | [ai-assisted-development](courses/07-ai-assisted-development/) | 에이전트 코딩 · **Codex CLI** · AGENTS.md · 검토와 git | LED 제어판 참고본 |
 
 > 💡 **러닝 예제는 하나 — "LED 제어판".** 04 에서 화면(HTML/CSS/JS)을 만들고, 05 에서 콘솔 버전(딕셔너리·JSON)을 만들고,
-> 06 에서 서버(API·WebSocket)에 올리고, 03 의 선택 심화에서 ESP32 가 그 서버를 읽어 실제 LED 를 켜고, 07 에서 AI 에게 같은
+> 06 에서 서버(API·WebSocket)에 올리고, 03 의 WiFi 실습에서 ESP32 가 그 서버를 읽어 실제 LED 를 켜고, 07 에서 AI 에게 같은
 > 것을 말로 시켜 봅니다. 서버 데이터 규칙 `{on, by, time}` 은 전 강좌 공통.
 
 ## 저장소 구조

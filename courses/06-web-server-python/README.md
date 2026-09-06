@@ -2,7 +2,7 @@
 
 04 강좌에서 만든 LED 제어판(HTML/CSS/JS)을 **Python FastAPI 서버**에 올립니다. **정적 파일 호스팅**으로 페이지를 서빙하고,
 **REST API** 로 서버가 LED 상태를 들게 하고, **fetch/polling** 으로 화면과 연결한 뒤, 마지막에 **WebSocket** 으로 진짜 실시간을
-만듭니다. 이 서버는 ESP32(03 강좌 선택 심화)가 그대로 재사용합니다.
+만듭니다. 이 서버는 ESP32(03 강좌 WiFi 실습)가 그대로 재사용합니다.
 
 > 🎯 이 자료를 끝내면: `uv run uvicorn` 으로 서버를 띄우고, 정적 파일을 서빙하고, GET/PUT API 를 만들어 `/docs` 에서 테스트하고,
 > 브라우저 두 창이 **같은 LED 상태를 즉시 공유**하는 앱을 완성할 수 있습니다.
@@ -43,7 +43,7 @@
 3. 🔌 `docs/03` + **`exercises/02`** — **API** GET/PUT, `/docs` 테스트
 4. 🔁 `docs/04` + **`exercises/03`** — fetch/PUT/polling 으로 두 창 동기화 ★
 5. ⚡ `docs/05` + **`exercises/04`** — **WebSocket** 으로 즉시 반영 ★
-6. 🔗 (선택) 03 강좌 [docs/08](../03-esp32-programming/docs/08-wifi-http-client.md) — 이 서버에 ESP32 붙이기
+6. 🔗 03 강좌 [docs/08](../03-esp32-programming/docs/08-wifi-http-client.md) 에서 실행만 했던 서버가 **바로 이것** — 이제 코드가 읽힙니다
 
 ## 예제 실행
 

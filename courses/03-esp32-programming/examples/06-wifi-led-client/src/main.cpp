@@ -1,4 +1,4 @@
-// 06-wifi-led-client — (선택) WiFi 연결 + LED 상태 서버에 HTTP GET 요청
+// 06-wifi-led-client — WiFi 연결 + LED 상태 서버에 HTTP GET 요청
 // WiFi에 접속한 뒤, 1초마다 로컬 서버의 /api/led 에 GET 요청을 보내고
 // 받은 상태(on/off)대로 내장 LED를 켜고 끈다. (Serial 모니터에도 출력)
 //

@@ -35,7 +35,7 @@ footer: "03 · ESP32 프로그래밍"
 5. **PWM 출력** — 밝기 조절
 6. **아날로그 입력** — 가변저항 → 밝기
 7. **Serial 통신** — 디버깅·명령
-8. (선택) **WiFi + HTTP** — 웹서버 LED 따라 켜기
+8. ★ **WiFi + HTTP** — 웹서버 LED 따라 켜기
 
 ---
 
@@ -319,20 +319,20 @@ if (Serial.available() > 0) {
 ```
 
 > 모니터 줄 끝(line ending)을 **LF/Newline** 으로
-> 여기까지가 **필수 과정** — 디지털 출력·입력·PWM·아날로그·Serial 완료 🎉
+> 이제 진짜 강점 — **WiFi** 로 서버와 통신하기
 
 ---
 
 <!-- _class: section -->
-<div class="eyebrow">PART 08 · 선택</div>
+<div class="eyebrow">PART 08 ★</div>
 
 # WiFi + HTTP
 
-<div class="lead-sub">웹서버(06 강좌)의 LED 를 실제 보드가 따라 켠다</div>
+<div class="lead-sub">오늘의 마무리 — 웹서버의 LED 를 실제 보드가 따라 켠다</div>
 
 ---
 
-## 전체 흐름 (06-web-server-python 이후)
+## 전체 흐름
 
 ```
 [웹 페이지] ─PUT /api/led─▶ [LED 서버] ◀─GET /api/led─ [ESP32]
@@ -353,6 +353,7 @@ http.end();
 ```
 
 > 비밀정보(SSID/비번/주소)는 **`config.h`** 로 분리 → git 제외 · ESP32 는 **2.4GHz 만** · 서버는 `--host 0.0.0.0`
+> 서버 = 06 강좌 완성 예제를 `uv run` 으로 **실행만** (코드는 06 에서 배움)
 
 ---
 
@@ -370,7 +371,7 @@ http.end();
 - **디지털 출력** `digitalWrite` · **입력** `INPUT_PULLUP` + 엣지 감지
 - **PWM** `analogWrite(0~255)` · **아날로그 입력** `analogRead(34)` + `map`
 - **Serial**: 출력으로 디버깅, 입력으로 제어, 115200
-- (선택) **WiFi + GET** 으로 웹서버 LED 따라 켜기
+- **WiFi + GET** 으로 웹서버 LED 따라 켜기 — 웹과 하드웨어가 한 서버를 공유
 
 <span class="small">자세한 내용은 docs/, 직접 해보기는 exercises/ + examples/</span>
 
@@ -386,6 +387,6 @@ http.end();
 
 <div class="rule"></div>
 
-<div class="subtitle">exercises/ — LED → 버튼 → PWM → 가변저항 → Serial 순서로</div>
+<div class="subtitle">exercises/ — LED → 버튼 → PWM → 가변저항 → Serial → WiFi 순서로</div>
 
 <div class="brand">COSMOS TECHNICAL FUNDAMENTALS</div>

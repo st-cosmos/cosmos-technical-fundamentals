@@ -187,6 +187,6 @@ app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"])
 | 자동 갱신 | `setInterval(fetchLed, 1000)` |
 
 이제 모든 조각이 모였습니다. 실습에서 **두 브라우저 창**으로 서로 LED 를 켜고 꺼 보세요. 같은 서버에 **ESP32**
-(03 강좌 선택 심화)를 붙이면 **실제 LED** 가 따라 켜집니다. 🎉
+(03 강좌 마지막 실습)를 붙이면 **실제 LED** 가 따라 켜집니다. 🎉
 
 ➡️ 실습으로: [exercises/03-led-control.md](../exercises/03-led-control.md) · 다음 문서: [05. WebSocket](05-websocket.md)

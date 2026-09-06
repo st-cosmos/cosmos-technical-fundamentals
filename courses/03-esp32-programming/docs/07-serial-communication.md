@@ -136,13 +136,13 @@ Serial.printf("WiFi 상태 코드: %d\n", WiFi.status());  // 값이 뭐지?
 화면 없는 보드에서 **무슨 일이 일어나는지 보는 가장 빠른 방법**입니다. 다음 장의 WiFi
 실습에서 연결이 안 될 때도 이 방법으로 원인을 찾습니다.
 
-## 정리 — 여기까지가 필수 과정
+## 정리
 
-**디지털 출력 · 디지털 입력 · PWM 출력 · 아날로그 입력 · Serial 통신** — ESP32 의 기본 다섯 가지를 모두
-다뤘습니다. 🎉 실습 [`exercises/05`](../exercises/05-serial-monitor-chat.md) 로 마무리하세요.
+**디지털 출력 · 디지털 입력 · PWM 출력 · 아날로그 입력 · Serial 통신** — ESP32 의 기본 다섯 가지를 모두 다뤘습니다.
+실습 [`exercises/05`](../exercises/05-serial-monitor-chat.md) 로 손에 익히세요.
 
-## 다음 단계 (선택)
+## 다음 단계
 
-ESP32 의 진짜 강점 **WiFi 로 서버와 통신하기**는 선택 심화입니다. 06-web-server-python 강좌를 마친 뒤 돌아와도 됩니다.
+이제 ESP32 의 진짜 강점, **WiFi 로 서버와 통신하기**로 갑니다. 지금까지 배운 GPIO·Serial 이 전부 쓰입니다.
 
-➡️ [08. (선택) WiFi + HTTP — 웹서버의 LED 를 따라 켜기](08-wifi-http-client.md)
+➡️ [08. WiFi + HTTP — 웹서버의 LED 를 따라 켜기](08-wifi-http-client.md)

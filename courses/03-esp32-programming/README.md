@@ -1,11 +1,11 @@
 # 03. ESP32 프로그래밍
 
 동아리 신입 부원을 위한 **ESP32 입문 자료**입니다. **마이크로컨트롤러가 처음인 사람**도 따라올 수 있도록, ESP32 가
-무엇인지부터 개발 환경 확인, 그리고 **디지털 출력 · 디지털 입력 · PWM 출력 · 아날로그 입력 · Serial 통신** 다섯 가지
-기본기를 하나씩 직접 손으로 해 봅니다.
+무엇인지부터 개발 환경 확인, **디지털 출력 · 디지털 입력 · PWM 출력 · 아날로그 입력 · Serial 통신** 다섯 가지 기본기,
+그리고 마무리로 **WiFi 로 웹서버와 통신**하기까지 하나씩 직접 손으로 해 봅니다.
 
 > 🎯 이 자료를 끝내면: ESP32 에 코드를 올려 LED 를 켜고 밝기를 조절하고, 버튼·가변저항 값을 읽고, Serial 로 PC 와
-> 대화할 수 있습니다. (선택 심화) WiFi 로 웹서버의 LED 상태를 읽어 실제 보드가 따라 켜지게 만듭니다.
+> 대화하고, WiFi 로 **웹서버의 LED 상태를 읽어 실제 보드가 따라 켜지게** 만들 수 있습니다.
 
 ## 누구를 위한 자료인가
 
@@ -25,7 +25,7 @@
 | LED, 220Ω 저항 | 디지털 출력·PWM 실습 |
 | 푸시 버튼(택트 스위치) | 디지털 입력 실습 |
 | 가변저항(포텐셔미터, 10kΩ) | 아날로그 입력 실습 |
-| (선택) 같은 WiFi 의 PC | WiFi 심화의 LED 서버 역할 |
+| 같은 WiFi 에 연결된 PC | WiFi 실습의 LED 서버 역할 (uv 로 06 예제 실행) |
 
 > 💡 LED·버튼·가변저항이 없어도 **내장 LED 와 Serial 모니터만으로** 실습 1·5 는 가능합니다.
 
@@ -41,21 +41,21 @@
 │   ├── 05-pwm-output.md               ③ PWM 출력 — 밝기 조절
 │   ├── 06-analog-input.md             ④ 아날로그 입력 — 가변저항·ADC·map
 │   ├── 07-serial-communication.md     ⑤ Serial 통신 — 디버깅과 명령 입력
-│   └── 08-wifi-http-client.md         (선택) WiFi + HTTP — 웹서버 LED 따라 켜기
+│   └── 08-wifi-http-client.md         ⑥ WiFi + HTTP — 웹서버 LED 따라 켜기 ★
 ├── exercises/
 │   ├── 01-blink-led.md
 │   ├── 02-button-led-control.md
 │   ├── 03-pwm-fade.md
 │   ├── 04-analog-pot-brightness.md
 │   ├── 05-serial-monitor-chat.md
-│   └── 06-wifi-led-client.md          (선택)
+│   └── 06-wifi-led-client.md          ★ 마무리
 ├── examples/                          실습용 PlatformIO 프로젝트 (예제별 독립 폴더)
 │   ├── 01-digital-output/             내장 LED 깜빡이기
 │   ├── 02-digital-input/              버튼으로 LED 제어 + 횟수 세기
 │   ├── 03-pwm-output/                 숨쉬는 LED (fade)
 │   ├── 04-analog-input/               가변저항 → LED 밝기
 │   ├── 05-serial/                     Serial 로 on/off 명령
-│   └── 06-wifi-led-client/            (선택) WiFi 로 LED 서버 폴링
+│   └── 06-wifi-led-client/            WiFi 로 LED 서버 폴링 → 내장 LED
 └── slides/
     └── esp32-basics.md
 ```
@@ -70,8 +70,11 @@
 4. 🔘 `docs/04` + `exercises/02` — 디지털 입력 (버튼)
 5. 🌗 `docs/05` + `exercises/03` — PWM 출력 (밝기)
 6. 🎚️ `docs/06` + `exercises/04` — 아날로그 입력 (가변저항 → 밝기)
-7. 🖥️ `docs/07` + `exercises/05` — Serial 통신 ★ 필수 과정 마무리
-8. 🌐 (선택) `docs/08` + `exercises/06` — WiFi 로 웹서버 LED 따라 켜기 (06 강좌 이후)
+7. 🖥️ `docs/07` + `exercises/05` — Serial 통신
+8. 🌐 `docs/08` + `exercises/06` — WiFi 로 웹서버 LED 따라 켜기 ★ 마무리
+
+> 🔗 8번의 LED 서버는 [06-web-server-python](../06-web-server-python/README.md) 의 완성 예제(`examples/02-led-api`)를
+> **실행만** 합니다. 서버 코드는 06 강좌에서 배우니, 지금은 `uv run` 한 줄로 띄우면 됩니다.
 
 ## 코드 실행 방법 (요약)
 

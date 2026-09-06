@@ -4,7 +4,7 @@
 - 웹 페이지에서 이름을 넣고 켜기/끄기 버튼 → PUT /api/led 로 서버 LED 상태 변경
 - 1초마다 GET /api/led 로 현재 상태를 받아 "누가 언제 바꿨는지" 화면에 표시 (polling)
 
-이 서버는 03-esp32-programming 의 선택 심화(examples/06-wifi-led-client)와 공유합니다.
+이 서버는 03-esp32-programming 의 WiFi 실습(examples/06-wifi-led-client)과 공유합니다.
 ESP32 보드도 GET /api/led 로 같은 상태를 읽어 실제 LED를 켜고 끕니다.
 (웹 페이지와 ESP32가 같은 서버를 보는 여러 클라이언트)
 

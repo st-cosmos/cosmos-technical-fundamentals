@@ -2,7 +2,7 @@
 
 > 🎯 목표: 이름을 넣고 **켜기/끄기 버튼으로 서버 LED 상태를 PUT** 하고, **1초마다 GET(polling)** 으로
 > 현재 상태와 "누가 언제 바꿨는지"를 화면에 표시한다. **두 개의 브라우저 창**으로 서로 켜고 끄면 완성!
-> 이 서버는 **ESP32**(03 강좌 선택 심화)가 그대로 재사용합니다.
+> 이 서버는 **ESP32**(03 강좌 WiFi 실습)가 그대로 재사용합니다.
 >
 > 📎 관련 문서: [docs/04-frontend-integration.md](../docs/04-frontend-integration.md) · 완성 코드: `examples/02-led-api/`
 
@@ -159,7 +159,7 @@ uv run uvicorn main:app --reload
 축하합니다! 웹 개발의 한 바퀴 — **HTML/CSS/JS 로 화면 만들기 · FastAPI 로 서버 띄우기 ·
 fetch 로 PUT/GET · polling 으로 갱신** — 을 모두 직접 완성했습니다.
 
-이 LED 서버는 그냥 연습이 아닙니다. **ESP32**(03 강좌 선택 심화)가 이 서버에
+이 LED 서버는 그냥 연습이 아닙니다. **ESP32**(03 강좌 WiFi 실습)가 이 서버에
 붙으면, 방금 웹에서 켠 LED 가 **진짜 LED 로** 켜집니다. 웹 페이지와 ESP32는 같은 서버를 보는
 여러 클라이언트일 뿐이에요.
 
