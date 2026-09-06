@@ -201,6 +201,8 @@ def set_led(cmd: LedCommand): ...
 
 ---
 
+<!-- _class: dense -->
+
 ## fetch — GET 과 PUT
 
 ```js
