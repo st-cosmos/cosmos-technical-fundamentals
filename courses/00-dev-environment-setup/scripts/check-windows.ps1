@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   COSMOS 개발 환경 설치 확인 (Windows)
 
