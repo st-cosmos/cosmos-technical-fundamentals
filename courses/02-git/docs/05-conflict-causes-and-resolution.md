@@ -68,7 +68,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 ### 1단계 — 어디서 충돌났는지 확인
 
 ```bash
+# 지금 상태: 내 feature 브랜치에서 rebase 진행 중
 git status
+# 첫 줄에 "You are currently rebasing branch 'feature/...' on '...'" 가 보이고,
 # "Unmerged paths" 아래에 충돌난 파일 목록이 보입니다.
 ```
 
@@ -95,6 +97,7 @@ VS Code를 쓰면 충돌 블록 위에 **"Accept Current / Accept Incoming / Acc
 ### 3단계 — 해결했다고 표시(add)
 
 ```bash
+# 지금 상태: rebase 진행 중 (아직 feature 브랜치 이름이 아니라 "rebasing" 상태로 표시됨)
 git add src/cart.js      # 충돌 해결한 파일을 add
 git status               # 다른 충돌 파일이 남았는지 확인
 ```

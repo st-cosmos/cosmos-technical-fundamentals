@@ -18,7 +18,7 @@ git config --list
 ## 1. 연습용 저장소 만들기
 
 ```bash
-# 작업할 폴더로 이동 후
+cd ~/workspace            # 동아리 규칙: 실습 저장소도 ~/workspace 안에
 mkdir git-practice
 cd git-practice
 git init
@@ -28,8 +28,11 @@ git init
 
 ```bash
 git status
-# → "No commits yet" 가 보이면 정상
+# → 첫 줄 "On branch main" (지금 브랜치), "No commits yet" 가 보이면 정상
+#   main 이 아니라 master 라면 00 강좌의 init.defaultBranch 설정을 빠뜨린 것 — git branch -M main 으로 바꾸면 됩니다
 ```
+
+> 📍 이 실습들의 명령 예시에는 `# 지금 브랜치: xxx` 주석이 있습니다. 치기 전에 `git status` 첫 줄과 같은지 확인하세요.
 
 ## 2. 첫 파일 만들고 커밋하기
 

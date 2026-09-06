@@ -16,6 +16,10 @@ git diff        # 아직 add 안 한 변경 내용 보기
 > 💡 `git log --graph` 가 글자로 그리는 그래프를 VS Code **Git Graph** 확장은 그림으로 보여 줍니다.
 > 이 강좌 내내 터미널 명령과 Git Graph 화면을 **함께** 보면서 진행하면 브랜치가 훨씬 잘 보입니다.
 
+> 📍 **이 강좌의 명령 예시에는 `# 지금 브랜치: xxx` 주석이 붙어 있습니다.** 같은 명령도 **어느 브랜치에서 치느냐**에
+> 따라 결과가 달라지기 때문입니다. 명령을 치기 전에 `git status` 첫 줄(`On branch xxx`)이 주석과 같은지 확인하세요.
+> 주석 줄은 복사해 붙여도 무시되므로 그대로 붙여넣어도 됩니다.
+
 ## 1. 기본 흐름: 작업 → add → commit → push
 
 이 4단계가 Git 사용의 핵심입니다.
@@ -59,9 +63,12 @@ git fetch            # 원격 변경을 "받아만" 두기(병합은 안 함)
 ## 3. 브랜치 다루기
 
 ```bash
-git branch                      # 브랜치 목록
+# 지금 브랜치: main
+git branch                      # 브랜치 목록 (* 가 붙은 것이 지금 브랜치)
 git switch -c feature/login     # 새 브랜치 만들고 그쪽으로 이동
+# 지금 브랜치: feature/login   ← 여기서 작업하고 커밋
 git switch main                 # main 브랜치로 이동
+# 지금 브랜치: main
 git branch -d feature/login     # 브랜치 삭제(병합 완료된 것)
 ```
 
@@ -89,9 +96,12 @@ git branch -d feature/login     # 브랜치 삭제(병합 완료된 것)
 작업 중인데 급히 다른 브랜치로 가야 할 때, **커밋하지 않고** 잠깐 치워둡니다.
 
 ```bash
+# 지금 브랜치: feature/login  (작업 중, 아직 커밋 안 함)
 git stash            # 현재 변경을 임시 보관
 git switch main      # 다른 일 처리
+# 지금 브랜치: main
 git switch -         # 원래 브랜치로 복귀
+# 지금 브랜치: feature/login
 git stash pop        # 치워둔 변경 복원
 ```
 

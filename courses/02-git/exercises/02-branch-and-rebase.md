@@ -8,19 +8,23 @@
 ## 1. 연습 환경 준비
 
 ```bash
+cd ~/workspace
 mkdir branch-practice && cd branch-practice
 git init
+# 지금 브랜치: main
 echo "line 1" > app.txt
 git add app.txt && git commit -m "초기 파일"
 
 # develop 브랜치를 만들어 기준으로 삼습니다
 git switch -c develop
+# 지금 브랜치: develop
 ```
 
 ## 2. feature 브랜치에서 작업
 
 ```bash
 git switch -c feature/add-greeting
+# 지금 브랜치: feature/add-greeting
 echo "안녕하세요" >> app.txt
 git add app.txt && git commit -m "인사말 추가"
 
@@ -38,6 +42,7 @@ git log --oneline --graph --all
 
 ```bash
 git switch develop
+# 지금 브랜치: develop  (다른 팀원 역할)
 echo "공지: 점검 예정" >> notice.txt
 git add notice.txt && git commit -m "점검 공지 추가"
 
@@ -50,6 +55,7 @@ git log --oneline --graph --all
 
 ```bash
 git switch feature/add-greeting
+# 지금 브랜치: feature/add-greeting   ← rebase 는 내 feature 브랜치에 서서!
 git rebase develop
 ```
 
@@ -68,6 +74,7 @@ git log --oneline --graph --all
 
 ```bash
 git switch develop
+# 지금 브랜치: develop   ← 합치기는 "받는 쪽" 브랜치에 서서
 git merge feature/add-greeting     # rebase 해뒀으니 깔끔하게(fast-forward) 합쳐짐
 git log --oneline --graph --all
 ```
@@ -77,6 +84,7 @@ git log --oneline --graph --all
 ## 6. 정리
 
 ```bash
+# 지금 브랜치: develop  (지우려는 브랜치 위에 서 있으면 지울 수 없음)
 git branch -d feature/add-greeting
 ```
 
@@ -85,7 +93,8 @@ git branch -d feature/add-greeting
 실제 협업에서는 4번 전에 원격 최신을 받아옵니다:
 
 ```bash
-git fetch origin
+# 지금 브랜치: feature/add-greeting  (내 feature 브랜치)
+git fetch origin                # 원격 최신을 받아만 둠
 git rebase origin/develop
 # 충돌 해결 후
 git push --force-with-lease     # rebase로 이력이 바뀌었으니

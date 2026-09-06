@@ -53,10 +53,12 @@ release/1.2.0             릴리스
 ```bash
 # 1) 최신 develop에서 출발
 git switch develop
+# 지금 브랜치: develop
 git pull                       # (우리 팀은 rebase pull — 아래 4번)
 
 # 2) 작업 브랜치 생성
 git switch -c feature/123-cart-bug
+# 지금 브랜치: feature/123-cart-bug   ← 3)~4) 는 모두 여기서
 
 # 3) 작업하고 커밋 (여러 번 OK)
 git add .
@@ -68,11 +70,14 @@ git push -u origin feature/123-cart-bug
 # 5) GitHub에서 Pull Request 생성 (develop ← feature/123-cart-bug)
 #    → 팀원 리뷰 → 승인 → 병합
 
-# 6) 병합 후 정리
+# 6) 병합 후 정리 — develop 으로 돌아와서
 git switch develop
+# 지금 브랜치: develop
 git pull
 git branch -d feature/123-cart-bug
 ```
+
+> 📍 헷갈리면 언제든 `git status` — 첫 줄 `On branch ...` 가 지금 브랜치입니다. VS Code 왼쪽 아래 상태바에도 항상 표시됩니다.
 
 ## 3. Pull Request(PR) — 코드 리뷰의 단위
 
@@ -118,8 +123,9 @@ git config --global pull.rebase true
 
 ```bash
 git switch feature/내작업
-git fetch origin
-git rebase origin/develop
+# 지금 브랜치: feature/내작업   ← rebase 는 항상 "내 feature 브랜치"에 서서!
+git fetch origin                # 원격의 최신 develop 을 받아만 둠 (브랜치는 안 바뀜)
+git rebase origin/develop       # 내 커밋들을 최신 develop 위로 옮겨 붙임
 # (충돌이 나면 해결 — 05 문서 참고)
 git push --force-with-lease     # rebase로 이력이 바뀌었으니 강제 푸시 필요
 ```

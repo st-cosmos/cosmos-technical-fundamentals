@@ -106,9 +106,11 @@ gh auth login
 팀 저장소를 내 컴퓨터로 복제합니다.
 
 ```bash
+cd ~/workspace                 # 동아리 규칙: 모든 저장소는 ~/workspace 안에 (00 강좌)
 # GitHub 저장소 페이지의 Code 버튼에서 주소 복사 후
 git clone https://github.com/우리팀/저장소이름.git
 cd 저장소이름
+# 지금 브랜치: main  (git status 첫 줄 "On branch main" 으로 확인)
 ```
 
 이제 준비 완료입니다. 직접 첫 커밋을 만들어보려면 실습으로 넘어가세요.

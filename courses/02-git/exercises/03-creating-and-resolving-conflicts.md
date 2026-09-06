@@ -8,14 +8,17 @@
 ## 1. 연습 환경 준비
 
 ```bash
+cd ~/workspace
 mkdir conflict-practice && cd conflict-practice
 git init
+# 지금 브랜치: main
 
 # 여러 줄짜리 파일을 만듭니다
 printf "1: 제목\n2: 내용\n3: 끝맺음\n" > doc.txt
 git add doc.txt && git commit -m "문서 초안"
 
 git switch -c develop
+# 지금 브랜치: develop
 ```
 
 `doc.txt`의 2번 줄을 두 브랜치가 **서로 다르게** 고쳐서 충돌을 일으킬 겁니다.
@@ -26,6 +29,7 @@ git switch -c develop
 
 ```bash
 git switch -c feature/edit-body
+# 지금 브랜치: feature/edit-body
 # 2번 줄을 "내용: 사과" 로 바꿉니다 (에디터로 doc.txt 열어 수정)
 ```
 
@@ -45,6 +49,7 @@ git add doc.txt && git commit -m "본문을 사과로"
 
 ```bash
 git switch develop
+# 지금 브랜치: develop  (다른 팀원 역할)
 # 같은 2번 줄을 "내용: 바나나" 로 바꿉니다
 ```
 
@@ -68,6 +73,7 @@ git add doc.txt && git commit -m "본문을 바나나로"
 
 ```bash
 git switch feature/edit-body
+# 지금 브랜치: feature/edit-body   ← rebase 는 내 feature 에 서서
 git rebase develop
 ```
 
@@ -83,7 +89,9 @@ error: could not apply ... 본문을 사과로
 ### 4-1. 어디서 났나
 
 ```bash
+# 지금 상태: feature/edit-body 에서 rebase 진행 중
 git status
+# 첫 줄 "You are currently rebasing branch 'feature/edit-body' on '...'"
 # "Unmerged paths: doc.txt" 확인
 ```
 
@@ -120,8 +128,10 @@ git status
 ### 4-4. 해결 표시 후 진행
 
 ```bash
+# 지금 상태: rebase 진행 중
 git add doc.txt
 git rebase --continue
+# 지금 브랜치: feature/edit-body  (rebase 가 끝나면 다시 브랜치 이름으로 돌아옴)
 ```
 
 충돌이 없으면 rebase가 끝납니다. 확인:
@@ -136,6 +146,7 @@ git log --oneline --graph --all
 이번엔 일부러 중간에 포기하는 것도 해봅시다. (실수했을 때를 대비)
 
 ```bash
+# 지금 브랜치: feature/edit-body
 # 다시 충돌 상황을 만든 뒤... (3번 반복)
 git rebase develop
 # 충돌 발생!
@@ -153,6 +164,7 @@ git status              # 충돌 흔적 없이 원래대로
 
 ```bash
 git switch develop
+# 지금 브랜치: develop   ← merge 는 "받는 쪽"에 서서
 git merge feature/edit-body   # 충돌 발생
 # doc.txt 고치고 마커 삭제
 git add doc.txt

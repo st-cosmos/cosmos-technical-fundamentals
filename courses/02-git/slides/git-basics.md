@@ -157,6 +157,7 @@ git diff                         # 변경 내용
 ```
 
 > `git status`는 "지금 뭘 해야 하는지" 늘 알려줍니다.
+> 📍 이 자료의 코드 블록 속 `# 지금 브랜치: xxx` = 그 명령을 치는 브랜치. `git status` 첫 줄 `On branch xxx` 와 맞는지 확인!
 
 ---
 
@@ -178,8 +179,9 @@ git push                        # 4) GitHub에 올리기
 ## 브랜치 · 되돌리기
 
 ```bash
-git switch -c feature/login   # 새 브랜치 만들고 이동
-git switch main               # 이동
+# 지금 브랜치: main
+git switch -c feature/login   # 새 브랜치 만들고 이동 → 지금 브랜치: feature/login
+git switch main               # 이동           → 지금 브랜치: main
 
 git restore 파일              # 수정 취소 (add 전)
 git restore --staged 파일     # add 취소
@@ -218,11 +220,14 @@ git revert <커밋>             # 공유된 커밋 안전하게 되돌리기
 
 ```bash
 git switch develop && git pull          # 1) 최신 develop
+# 지금 브랜치: develop
 git switch -c feature/123-cart-bug      # 2) 작업 브랜치
+# 지금 브랜치: feature/123-cart-bug   ← 3)~5) 는 모두 여기서
 git add . && git commit -m "..."        # 3) 작업 + 커밋
 git push -u origin feature/123-cart-bug # 4) 올리기
 # 5) GitHub에서 PR (develop ← feature) → 리뷰 → 병합
-git switch develop && git pull
+git switch develop && git pull          #    병합 후 develop 으로 돌아와서
+# 지금 브랜치: develop
 git branch -d feature/123-cart-bug      # 6) 정리
 ```
 
@@ -247,7 +252,8 @@ rebase: 내 커밋을 최신 위로 옮겨붙임 → 한 줄로 깔끔
 ## rebase 황금률 ⚠️
 
 ```bash
-git fetch origin
+# 지금 브랜치: feature/123-cart-bug   ← 내 feature 에 서서!
+git fetch origin                 # 원격 최신을 받아만 둠
 git rebase origin/develop        # 최신 develop 위로 정리
 git push --force-with-lease      # 이력 바뀌었으니 강제 푸시
 ```
@@ -298,6 +304,7 @@ git push --force-with-lease      # 이력 바뀌었으니 강제 푸시
 ## 해결 4단계
 
 ```bash
+# 지금 상태: 내 feature 에서 rebase 진행 중 (git status 첫 줄이 알려줌)
 # 1) 어디서 났나
 git status
 
