@@ -84,6 +84,36 @@ $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
             [Environment]::GetEnvironmentVariable("Path", "User")
 Write-Ok "완료"
 
+# ---------- 3-1. codex 명령 보정 ----------
+# winget 의 Codex CLI 는 portable 패키지라 원래는 WinGet\Links 에 codex.exe 심볼릭 링크를 만들어 PATH 에 올립니다.
+# 개발자 모드가 꺼진 일반 PC 에서는 심볼릭 링크를 못 만들어 패키지 폴더만 PATH 에 추가되는데, 그 안의 실행 파일
+# 이름이 codex-x86_64-pc-windows-msvc.exe 라서 `codex` 명령이 없습니다. 같은 폴더에 codex.cmd 를 만들어 해결합니다.
+Write-Step "codex 명령 확인"
+if (Get-Command codex -ErrorAction SilentlyContinue) {
+  Write-Ok "codex 명령 사용 가능"
+} else {
+  $pkgDir = Get-ChildItem (Join-Path $env:LOCALAPPDATA "Microsoft\WinGet\Packages") -Directory -Filter "OpenAI.Codex_*" -ErrorAction SilentlyContinue |
+            Select-Object -First 1
+  $exe = $null
+  if ($pkgDir) {
+    $exe = Get-ChildItem $pkgDir.FullName -Filter "codex-*.exe" -ErrorAction SilentlyContinue |
+           Where-Object { $_.Name -notmatch "runner|sandbox" } | Select-Object -First 1
+  }
+  if ($exe) {
+    $shim = Join-Path $pkgDir.FullName "codex.cmd"
+    Set-Content -Path $shim -Value "@echo off`r`n`"%~dp0$($exe.Name)`" %*" -Encoding Ascii
+    $userPath = [Environment]::GetEnvironmentVariable("Path", "User")
+    if (($userPath -split ";") -notcontains $pkgDir.FullName) {
+      [Environment]::SetEnvironmentVariable("Path", ($userPath.TrimEnd(";") + ";" + $pkgDir.FullName), "User")
+      $env:Path += ";" + $pkgDir.FullName
+    }
+    Write-Ok "codex.cmd 생성 — 새 터미널에서 codex 사용 가능 ($($pkgDir.FullName))"
+  } else {
+    Write-Fail "codex 실행 파일을 찾지 못했습니다. 새 터미널에서 codex --version 을 확인하고, 안 되면 docs/04 를 보세요."
+    $failed.Add("codex 명령")
+  }
+}
+
 # ---------- 4. VS Code 확장 ----------
 Write-Step "VS Code 확장 설치 (PlatformIO, Git Graph)"
 $code = Get-Command code -ErrorAction SilentlyContinue

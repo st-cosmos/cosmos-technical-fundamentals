@@ -49,7 +49,8 @@
 | `python` 을 치면 Microsoft Store 가 열림 | 설정 → 앱 → **앱 실행 별칭** 에서 `python.exe`/`python3.exe` 의 "App Installer" 항목을 **끄기**. 그래도 안 되면 `winget install --id Python.Python.3.12` 재실행 |
 | `code` 명령 없음 | VS Code 설치 후 새 터미널. 그래도 없으면 VS Code 재설치 시 "PATH에 추가" 옵션 확인 |
 | `uv` 없음 | `winget install --id astral-sh.uv` 또는 `powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 \| iex"` |
-| `codex` 없음 | `winget install --id OpenAI.Codex` 재실행. 새 터미널 |
+| `codex` 없음 (winget 에는 설치됐다고 나옴) | 개발자 모드가 꺼진 PC 에서 winget 이 `codex.exe` 링크를 못 만든 경우. **설치 스크립트를 다시 실행**하면 `codex.cmd` 를 만들어 줍니다. 새 터미널에서 확인 |
+| `codex` 없음 (winget 에도 없음) | `winget install --id OpenAI.Codex` 재실행 후 설치 스크립트 재실행. 새 터미널 |
 | PlatformIO 아이콘이 안 보임 | VS Code 를 켠 채 몇 분 대기(Core 설치). 하단 상태바 메시지 확인. 안 되면 확장 탭에서 **PlatformIO IDE** 재설치 |
 | 확장이 설치 안 됨 | `code --install-extension platformio.platformio-ide` / `code --install-extension mhutchie.git-graph` 직접 실행 |
 
