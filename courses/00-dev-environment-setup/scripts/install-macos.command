@@ -26,14 +26,6 @@ ok()   { printf "    \033[32m[OK]\033[0m %s\n" "$1"; }
 skip() { printf "    \033[90m[SKIP]\033[0m %s (이미 설치됨)\n" "$1"; }
 fail() { printf "    \033[31m[FAIL]\033[0m %s\n" "$1"; FAILED+=("$1"); }
 
-# ---------- 0. 동아리 작업 폴더 (~/workspace) ----------
-step "동아리 작업 폴더 확인 (~/workspace)"
-if [ -d "$HOME/workspace" ]; then
-  ok "$HOME/workspace (이미 있음)"
-else
-  mkdir -p "$HOME/workspace" && ok "$HOME/workspace 생성 — 앞으로 모든 동아리 자료·프로젝트는 이 안에 둡니다"
-fi
-
 # ---------- 1. Xcode Command Line Tools (git 포함) ----------
 step "Xcode Command Line Tools (Git) 확인"
 if xcode-select -p >/dev/null 2>&1; then

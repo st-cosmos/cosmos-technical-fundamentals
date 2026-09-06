@@ -35,16 +35,6 @@ function Write-Ok($msg)   { Write-Host "    [OK] $msg" -ForegroundColor Green }
 function Write-Skip($msg) { Write-Host "    [SKIP] $msg (이미 설치됨)" -ForegroundColor DarkGray }
 function Write-Fail($msg) { Write-Host "    [FAIL] $msg" -ForegroundColor Red }
 
-# ---------- 0. 동아리 작업 폴더 (~\workspace) ----------
-Write-Step "동아리 작업 폴더 확인 (~\workspace)"
-$workspace = Join-Path $HOME "workspace"
-if (Test-Path $workspace) {
-  Write-Ok "$workspace (이미 있음)"
-} else {
-  New-Item -ItemType Directory -Path $workspace | Out-Null
-  Write-Ok "$workspace 생성 — 앞으로 모든 동아리 자료·프로젝트는 이 안에 둡니다"
-}
-
 # ---------- 1. winget 확인 ----------
 Write-Step "winget 확인"
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
