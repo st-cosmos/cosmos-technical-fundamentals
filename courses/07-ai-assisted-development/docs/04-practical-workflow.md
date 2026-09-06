@@ -8,8 +8,8 @@
 ## 1. 준비 — 안전망 먼저
 
 ```bash
-cp -r courses/06-web-server-python/examples/02-led-api ~/projects/led-server   # 원본은 두고 복사본에서
-cd ~/projects/led-server
+cp -r courses/06-web-server-python/examples/02-led-api ~/workspace/led-server   # 원본은 두고 복사본에서
+cd ~/workspace/led-server
 git init && git add . && git commit -m "06 LED 서버 시작점"                    # 되돌릴 기준점
 codex
 › /init                                                                          # AGENTS.md 초안 → 규칙 보강 (03 문서 예시)

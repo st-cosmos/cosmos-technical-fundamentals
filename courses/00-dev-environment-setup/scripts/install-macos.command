@@ -12,8 +12,11 @@
 #   - Codex CLI                 (brew codex, 실패 시 npm)
 #   - VS Code 확장: platformio.platformio-ide, mhutchie.git-graph
 #
-# 실행:  bash scripts/install-macos.sh
-# 확인:  (새 터미널에서) bash scripts/check-macos.sh
+# 실행:  Finder 에서 이 파일(install-macos.command) 더블클릭  (권장)
+#        처음엔 macOS 가 막습니다 → 시스템 설정 → 개인정보 보호 및 보안 → "그래도 열기"
+#        터미널로는:  bash scripts/install-macos.command
+# 확인:  check-macos.command 더블클릭  (또는 새 터미널에서 bash scripts/check-macos.command)
+# 이 스크립트는 다른 파일에 의존하지 않으므로 어느 폴더에서 실행해도 됩니다.
 # ============================================================
 set -u
 
@@ -22,6 +25,14 @@ step() { printf "\n\033[36m==> %s\033[0m\n" "$1"; }
 ok()   { printf "    \033[32m[OK]\033[0m %s\n" "$1"; }
 skip() { printf "    \033[90m[SKIP]\033[0m %s (이미 설치됨)\n" "$1"; }
 fail() { printf "    \033[31m[FAIL]\033[0m %s\n" "$1"; FAILED+=("$1"); }
+
+# ---------- 0. 동아리 작업 폴더 (~/workspace) ----------
+step "동아리 작업 폴더 확인 (~/workspace)"
+if [ -d "$HOME/workspace" ]; then
+  ok "$HOME/workspace (이미 있음)"
+else
+  mkdir -p "$HOME/workspace" && ok "$HOME/workspace 생성 — 앞으로 모든 동아리 자료·프로젝트는 이 안에 둡니다"
+fi
 
 # ---------- 1. Xcode Command Line Tools (git 포함) ----------
 step "Xcode Command Line Tools (Git) 확인"
@@ -121,8 +132,9 @@ fi
 cat <<'EOF'
 
  다음 단계:
-   1) 터미널을 닫고 새로 엽니다.
-   2) 이 폴더에서  bash scripts/check-macos.sh  로 확인합니다.
+   1) 이 창을 닫습니다.
+   2) 같은 폴더의  check-macos.command  를 더블클릭해 확인합니다.
+      (터미널로 하려면: 새 터미널에서  bash scripts/check-macos.command)
    3) git config / codex login / VS Code 첫 실행 (docs/03-macos-setup.md 5~7절)
 ============================================================
 EOF

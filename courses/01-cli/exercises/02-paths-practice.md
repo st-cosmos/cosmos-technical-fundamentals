@@ -7,10 +7,10 @@
 
 ## 1단계. 연습용 폴더 구조 만들기
 
-홈 폴더에서 시작해 아래 구조를 만듭니다. (한 줄씩 치고 `ls` 로 확인하며)
+동아리 작업 폴더 `~/workspace` 에서 시작해 아래 구조를 만듭니다. (한 줄씩 치고 `ls` 로 확인하며)
 
 ```bash
-cd ~
+cd ~/workspace
 mkdir path-practice
 cd path-practice
 mkdir web esp32
@@ -20,7 +20,7 @@ mkdir web/static esp32/src
 만들어진 구조:
 
 ```
-~/path-practice/
+~/workspace/path-practice/
    ├── web/
    │    └── static/
    └── esp32/
@@ -29,18 +29,18 @@ mkdir web/static esp32/src
 
 ## 2단계. 상대 경로로 이동하기
 
-지금 위치는 `~/path-practice` 입니다. 각 줄을 치고 **`pwd` 로 예상과 맞는지 확인**하세요.
+지금 위치는 `~/workspace/path-practice` 입니다. 각 줄을 치고 **`pwd` 로 예상과 맞는지 확인**하세요.
 
 ```bash
-cd web/static          # 두 칸 한 번에 들어가기      → ~/path-practice/web/static
+cd web/static          # 두 칸 한 번에 들어가기      → ~/workspace/path-practice/web/static
 pwd
-cd ..                  # 한 칸 위                    → ~/path-practice/web
+cd ..                  # 한 칸 위                    → ~/workspace/path-practice/web
 pwd
-cd ../esp32            # 한 칸 위로 나가서 esp32 로   → ~/path-practice/esp32
+cd ../esp32            # 한 칸 위로 나가서 esp32 로   → ~/workspace/path-practice/esp32
 pwd
-cd src                 #                             → ~/path-practice/esp32/src
+cd src                 #                             → ~/workspace/path-practice/esp32/src
 pwd
-cd ../../web/static    # 두 칸 위 → web → static     → ~/path-practice/web/static
+cd ../../web/static    # 두 칸 위 → web → static     → ~/workspace/path-practice/web/static
 pwd
 ```
 
@@ -65,7 +65,7 @@ cd /Users/나/path-practice/esp32/src
 ## 4단계. `~` 로 지름길
 
 ```bash
-cd ~/path-practice/web       # 어디 있든 한 번에
+cd ~/workspace/path-practice/web       # 어디 있든 한 번에
 pwd
 cd ~                         # 홈으로
 ```
@@ -75,33 +75,33 @@ cd ~                         # 홈으로
 `web/static` 에 파일을 만들고, **다른 폴더에서** 그 파일을 상대 경로로 읽어 봅니다.
 
 ```bash
-cd ~/path-practice/web/static
+cd ~/workspace/path-practice/web/static
 echo "hello" > index.html          # 파일 만들기
 cd ../../esp32/src                 # 멀리 이동
 cat ../../web/static/index.html    # 여기서 저 파일을 상대 경로로 → hello 가 나오면 성공
-cat ~/path-practice/web/static/index.html   # 같은 파일을 ~ 기준으로
+cat ~/workspace/path-practice/web/static/index.html   # 같은 파일을 ~ 기준으로
 ```
 
 ## 6단계. 퀴즈 — 종이에 먼저 답하고 확인
 
-지금 위치가 `~/path-practice/esp32/src` 일 때, 다음 명령 후 `pwd` 는?
+지금 위치가 `~/workspace/path-practice/esp32/src` 일 때, 다음 명령 후 `pwd` 는?
 
 | # | 명령 | 예상 | 실제 |
 |---|------|------|------|
 | 1 | `cd ..` | | |
 | 2 | `cd ../web` (1번 이어서) | | |
 | 3 | `cd static/../static` (2번 이어서) | | |
-| 4 | `cd ~/path-practice` | | |
+| 4 | `cd ~/workspace/path-practice` | | |
 | 5 | `cd ../path-practice/esp32` (4번 이어서) | | |
 
 <details>
 <summary>답</summary>
 
-1. `~/path-practice/esp32`
-2. `~/path-practice/web`
-3. `~/path-practice/web/static` (들어갔다 나왔다 다시 들어감)
-4. `~/path-practice`
-5. `~/path-practice/esp32` (한 칸 위로 나가서 다시 path-practice → esp32)
+1. `~/workspace/path-practice/esp32`
+2. `~/workspace/path-practice/web`
+3. `~/workspace/path-practice/web/static` (들어갔다 나왔다 다시 들어감)
+4. `~/workspace/path-practice`
+5. `~/workspace/path-practice/esp32` (한 칸 위로 나가서 다시 path-practice → esp32)
 
 </details>
 

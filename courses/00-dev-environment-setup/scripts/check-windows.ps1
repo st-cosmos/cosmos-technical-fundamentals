@@ -4,7 +4,8 @@
 
 .DESCRIPTION
   각 도구의 버전을 출력하고 [OK]/[MISSING] 으로 표시합니다.
-  설치 직후라면 반드시 "새 터미널(PowerShell 7)" 에서 실행하세요.
+  실행: 같은 폴더의 check-windows.cmd 더블클릭 (새 창이라 방금 설치한 것이 바로 보임)
+        또는 "새 터미널(PowerShell 7)" 에서 .\scripts\check-windows.ps1
 #>
 #Requires -Version 5.1
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8

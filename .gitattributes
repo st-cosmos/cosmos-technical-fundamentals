@@ -27,6 +27,7 @@
 *.h        text eol=lf
 *.ini      text eol=lf
 *.sh       text eol=lf
+*.command  text eol=lf
 
 # Windows 전용 스크립트는 CRLF 유지 (LF로 바꾸면 동작 안 할 수 있음)
 *.bat      text eol=crlf

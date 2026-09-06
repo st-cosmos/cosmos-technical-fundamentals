@@ -15,11 +15,14 @@
     - VS Code 확장: platformio.platformio-ide, mhutchie.git-graph
 
 .NOTES
-  실행 방법 (기본 PowerShell 5.1 에서도 동작):
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-    .\scripts\install-windows.ps1
+  실행 방법:
+    ① 더블클릭: 같은 폴더의 install-windows.cmd  (권장 — 터미널을 몰라도 됨)
+    ② 터미널 (기본 PowerShell 5.1 에서도 동작):
+         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+         .\scripts\install-windows.ps1
 
-  설치 후에는 터미널을 새로 열고 .\scripts\check-windows.ps1 로 확인하세요.
+  설치 후에는 check-windows.cmd 를 더블클릭 (또는 새 PowerShell 7 창에서 .\scripts\check-windows.ps1) 로 확인하세요.
+  이 스크립트는 다른 파일에 의존하지 않으므로 어느 폴더에서 실행해도 됩니다.
 #>
 #Requires -Version 5.1
 $ErrorActionPreference = "Continue"
@@ -32,7 +35,17 @@ function Write-Ok($msg)   { Write-Host "    [OK] $msg" -ForegroundColor Green }
 function Write-Skip($msg) { Write-Host "    [SKIP] $msg (이미 설치됨)" -ForegroundColor DarkGray }
 function Write-Fail($msg) { Write-Host "    [FAIL] $msg" -ForegroundColor Red }
 
-# ---------- 0. winget 확인 ----------
+# ---------- 0. 동아리 작업 폴더 (~\workspace) ----------
+Write-Step "동아리 작업 폴더 확인 (~\workspace)"
+$workspace = Join-Path $HOME "workspace"
+if (Test-Path $workspace) {
+  Write-Ok "$workspace (이미 있음)"
+} else {
+  New-Item -ItemType Directory -Path $workspace | Out-Null
+  Write-Ok "$workspace 생성 — 앞으로 모든 동아리 자료·프로젝트는 이 안에 둡니다"
+}
+
+# ---------- 1. winget 확인 ----------
 Write-Step "winget 확인"
 if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
   Write-Fail "winget 을 찾을 수 없습니다. Microsoft Store 에서 '앱 설치 관리자(App Installer)' 를 업데이트한 뒤 다시 실행하세요."
@@ -40,7 +53,7 @@ if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
 }
 Write-Ok ("winget " + (winget --version))
 
-# ---------- 1. winget 패키지 ----------
+# ---------- 2. winget 패키지 ----------
 function Test-WingetInstalled($id) {
   $out = winget list --id $id --exact --accept-source-agreements 2>$null | Out-String
   return ($out -match [regex]::Escape($id))
@@ -65,13 +78,13 @@ Install-Package "Python.Python.3.12"          "Python 3.12"
 Install-Package "astral-sh.uv"                "uv"
 Install-Package "OpenAI.Codex"                "Codex CLI"
 
-# ---------- 2. PATH 새로 읽기 (이 세션에서 code/git 등을 바로 쓰기 위해) ----------
+# ---------- 3. PATH 새로 읽기 (이 세션에서 code/git 등을 바로 쓰기 위해) ----------
 Write-Step "PATH 갱신"
 $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" +
             [Environment]::GetEnvironmentVariable("Path", "User")
 Write-Ok "완료"
 
-# ---------- 3. VS Code 확장 ----------
+# ---------- 4. VS Code 확장 ----------
 Write-Step "VS Code 확장 설치 (PlatformIO, Git Graph)"
 $code = Get-Command code -ErrorAction SilentlyContinue
 if (-not $code) {
@@ -89,7 +102,7 @@ if ($code) {
   $failed.Add("VS Code 확장")
 }
 
-# ---------- 4. 결과 ----------
+# ---------- 5. 결과 ----------
 Write-Host ""
 Write-Host "============================================================" -ForegroundColor Cyan
 if ($failed.Count -eq 0) {
@@ -101,7 +114,8 @@ if ($failed.Count -eq 0) {
 }
 Write-Host ""
 Write-Host " 다음 단계:" -ForegroundColor Cyan
-Write-Host "   1) 이 창을 닫고, 시작 메뉴에서 'PowerShell 7' (pwsh) 을 새로 엽니다."
-Write-Host "   2) 이 폴더로 이동해  .\scripts\check-windows.ps1  를 실행합니다."
+Write-Host "   1) 아무 키나 눌러 이 창을 닫습니다."
+Write-Host "   2) 같은 폴더의  check-windows.cmd  를 더블클릭해 확인합니다."
+Write-Host "      (터미널로 하려면: 시작 메뉴에서 'PowerShell 7' 을 새로 열고  .\scripts\check-windows.ps1)"
 Write-Host "   3) git config / codex login / VS Code 첫 실행 (docs/02-windows-setup.md 5~7절)"
 Write-Host "============================================================" -ForegroundColor Cyan

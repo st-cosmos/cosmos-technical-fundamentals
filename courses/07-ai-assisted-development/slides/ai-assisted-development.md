@@ -101,7 +101,7 @@ footer: "07 · AI 로 개발하기"
 
 ```bash
 codex --version && codex login status     # 00 강좌에서 설치·로그인 완료
-cd ~/projects/led-panel-codex             # 에이전트는 "지금 폴더"를 작업 공간으로 본다
+cd ~/workspace/led-panel-codex             # 에이전트는 "지금 폴더"를 작업 공간으로 본다
 codex                                     # 대화창(TUI)
 codex "LED 제어판 index.html 만들어줘"     # 첫 요청을 바로
 ```

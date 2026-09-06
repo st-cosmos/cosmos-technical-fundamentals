@@ -57,7 +57,7 @@ Windows PowerShell 7 · macOS zsh<br>
 | 지금 어디 | 주소창 | `pwd` |
 
 ```
-PS C:\Users\나\projects>   ← 프롬프트 = 주소창 ("지금 이 폴더")
+PS C:\Users\나\workspace>   ← 프롬프트 = 주소창 ("지금 이 폴더")
 ```
 
 > 💡 `git`·`uv`·`codex`… 개발 도구는 다 터미널 명령. 명령은 **그대로 공유**할 수 있어 협업에 유리.
@@ -97,7 +97,7 @@ PS C:\Users\나\projects>   ← 프롬프트 = 주소창 ("지금 이 폴더")
 ```
 pwd            # 지금 어느 서랍이야?    (현재 위치 = 주소창)
 ls             # 이 서랍 안에 뭐가 있어? (목록)
-cd projects    # 저 서랍으로 이동       (더블클릭)
+cd workspace    # 저 서랍으로 이동       (더블클릭)
 cd ..          # 한 칸 밖으로           (↑ 버튼)
 cd ~           # 홈으로 한 번에
 mkdir web-01   # 새 서랍 만들기         (우클릭 → 새 폴더)
@@ -136,8 +136,8 @@ mkdir web-01   # 새 서랍 만들기         (우클릭 → 새 폴더)
 
 | | 우편 주소 비유 | 경로 |
 |---|----------------|------|
-| **절대** | "서울시 강남구 테헤란로 1" — 어디서 말해도 같은 곳 | `C:\Users\나\projects\web-01` `/Users/나/projects/web-01` |
-| **상대** | "여기서 오른쪽 두 블록" — **지금 위치**에 따라 다름 | `projects/web-01` `../web-02` |
+| **절대** | "서울시 강남구 테헤란로 1" — 어디서 말해도 같은 곳 | `C:\Users\나\workspace\web-01` `/Users/나/workspace/web-01` |
+| **상대** | "여기서 오른쪽 두 블록" — **지금 위치**에 따라 다름 | `workspace/web-01` `../web-02` |
 
 **구별법**: `C:\` 또는 `/` 로 **시작하면 절대**, 아니면 상대.
 
@@ -160,7 +160,7 @@ mkdir web-01   # 새 서랍 만들기         (우클릭 → 새 폴더)
 <div>
 
 ```
-C:\Users\나\projects\
+C:\Users\나\workspace\
    ├── web-01\   ← ★ 지금 여기
    │    └── css\style.css
    └── web-02\main.py
@@ -172,18 +172,18 @@ C:\Users\나\projects\
 | 상대 경로 (지금 web-01 에서) | 가리키는 곳 |
 |-----------|-------------|
 | `css/style.css` | web-01 안의 css 안의 style.css |
-| `..` | `projects` |
+| `..` | `workspace` |
 | `../web-02/main.py` | 한 칸 위 → web-02 → main.py |
-| `~/projects` | 홈 → projects (현재 위치 무관) |
+| `~/workspace` | 홈 → workspace (현재 위치 무관) |
 
 ---
 
-## 퀴즈 — 지금 `/Users/나/projects/esp32` 라면?
+## 퀴즈 — 지금 `/Users/나/workspace/esp32` 라면?
 
 ```
 /Users/나/
    ├── Documents/
-   └── projects/
+   └── workspace/
         ├── esp32/  ← ★ 여기      (src/main.cpp)
         └── web/    (static/index.html)
 ```
@@ -193,7 +193,7 @@ C:\Users\나\projects\
 3. `../../Documents` → ?
 4. `~/Documents` → ?
 
-<div class="small">답: ① esp32/src/main.cpp ② projects/web/static/index.html ③ /Users/나/Documents ④ 같은 곳(홈 기준이라 위치 무관)</div>
+<div class="small">답: ① esp32/src/main.cpp ② workspace/web/static/index.html ③ /Users/나/Documents ④ 같은 곳(홈 기준이라 위치 무관)</div>
 
 ---
 

@@ -13,7 +13,7 @@
 ```
 C:\Users\나\            ← 큰 서랍 (내 홈 폴더)          macOS: /Users/나/
    ├── Documents\       ← 그 안의 서랍
-   └── projects\        ← 그 안의 서랍
+   └── workspace\       ← 그 안의 서랍 (00 강좌에서 만든 동아리 작업 폴더)
         └── web-01\     ← 또 그 안의 서랍
 ```
 
@@ -45,10 +45,10 @@ ls
 ### `cd` — 다른 서랍으로 이동 (change directory)
 
 ```
-cd projects        # projects 서랍 안으로 들어가기 (더블클릭)
-cd ..              # 한 칸 밖(상위 폴더)으로 나오기 (← 뒤로/위로 버튼)
-cd ~               # 홈 폴더로 한 번에
-cd projects/web-01 # 여러 칸 한 번에 들어가기
+cd workspace          # workspace 서랍 안으로 들어가기 (더블클릭)
+cd ..                 # 한 칸 밖(상위 폴더)으로 나오기 (← 뒤로/위로 버튼)
+cd ~                  # 홈 폴더로 한 번에
+cd workspace/web-01   # 여러 칸 한 번에 들어가기
 ```
 
 > 💡 폴더 이름이 길면 앞 글자만 치고 **Tab** → 자동완성됩니다. 이름에 **띄어쓰기**가 있으면
@@ -63,15 +63,17 @@ mkdir web-01       # 지금 폴더 안에 web-01 폴더 생성 (우클릭 → �
 ## 3. 네 명령을 이어서 써 보면
 
 ```
-pwd                     → C:\Users\나            "지금 홈이구나"
-mkdir projects          →                        "projects 서랍을 만들고"
-cd projects             →                        "그 안으로 들어가서"
-pwd                     → C:\Users\나\projects   "잘 들어왔나 확인"
-mkdir web-01            →                        "또 하나 만들고"
-ls                      → web-01                 "목록에 보이네"
-cd ..                   →                        "한 칸 밖으로"
-pwd                     → C:\Users\나            "홈으로 돌아왔다"
+pwd            → C:\Users\나                          "지금 홈이구나"
+cd workspace   →                                      "workspace 서랍으로 들어가서" (00 에서 만든 동아리 작업 폴더)
+pwd            → C:\Users\나\workspace                "잘 들어왔나 확인"
+mkdir web-01   →                                      "새 서랍 하나 만들고"
+ls             → cosmos-technical-fundamentals web-01 "목록에 보이네 — 저장소 옆에 생겼다"
+cd ..          →                                      "한 칸 밖으로"
+pwd            → C:\Users\나                          "홈으로 돌아왔다"
 ```
+
+> 📁 동아리 규칙: 실습 폴더·프로젝트는 전부 **`~/workspace` 안에** 만듭니다. 홈 폴더가 어지러워지지 않고,
+> 어느 문서의 `cd ~/workspace/...` 도 그대로 통합니다.
 
 > 💡 **`cd` 한 뒤엔 `pwd`, `mkdir` 한 뒤엔 `ls`** — 명령이 잘 됐는지 눈으로 확인하는 습관을 들이세요.
 
@@ -104,7 +106,7 @@ pwd                     → C:\Users\나            "홈으로 돌아왔다"
 실습에서 가장 많이 쓰는 패턴입니다.
 
 ```
-cd projects/web-01     # 작업할 폴더로 이동
+cd workspace/web-01     # 작업할 폴더로 이동
 code .                 # 그 폴더를 VS Code 로 열기 ( . = 지금 폴더)
 ```
 
@@ -112,7 +114,7 @@ VS Code 가 열리면 안의 터미널(`` Ctrl + ` ``)은 **자동으로 그 폴
 
 ## 다음 단계
 
-`cd projects/web-01`, `cd ..`, `cd ~` 처럼 "어디로 갈지"를 적는 글자를 **경로(path)** 라고 합니다.
+`cd workspace/web-01`, `cd ..`, `cd ~` 처럼 "어디로 갈지"를 적는 글자를 **경로(path)** 라고 합니다.
 경로를 정확히 읽고 쓰는 것이 터미널의 핵심이라, 다음 문서에서 따로 자세히 다룹니다.
 
 ➡️ [03. 경로 — 절대 경로와 상대 경로](03-paths.md)

@@ -12,9 +12,10 @@
 
 ## 1단계. 프로젝트 만들기
 
-작업 폴더(예: `~/projects`)로 이동해서:
+동아리 작업 폴더로 이동해서:
 
 ```bash
+cd ~/workspace             # 프로젝트는 전부 ~/workspace 안에 (00 강좌 규칙)
 uv init hello-uv           # 프로젝트 폴더 생성
 cd hello-uv
 ls                         # pyproject.toml, main.py, .python-version, README.md

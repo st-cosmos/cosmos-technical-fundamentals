@@ -20,8 +20,8 @@
 ### 1단계 — 복사본 + git 안전망
 
 ```bash
-cp -r courses/06-web-server-python/examples/02-led-api ~/projects/led-server    # 저장소 최상위에서
-cd ~/projects/led-server
+cp -r courses/06-web-server-python/examples/02-led-api ~/workspace/led-server    # 저장소 최상위에서
+cd ~/workspace/led-server
 uv run uvicorn main:app --reload        # 원본이 동작하는지 먼저 확인 → Ctrl+C
 git init
 git add . && git commit -m "06 LED 서버 시작점"

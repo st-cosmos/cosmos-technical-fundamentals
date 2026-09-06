@@ -22,9 +22,10 @@ pwd
 ## 2단계. 연습용 폴더 만들고 들어가기
 
 ```bash
+cd ~/workspace             # 동아리 작업 폴더로 (00 강좌에서 만듦 — 실습 폴더는 전부 이 안에)
 mkdir cosmos-practice      # 새 폴더(서랍) 만들기 → 탐색기에 나타나는지 확인!
 cd cosmos-practice         # 그 안으로 들어가기
-pwd                        # 잘 들어왔는지 위치 재확인
+pwd                        # 잘 들어왔는지 위치 재확인 → .../workspace/cosmos-practice
 ```
 
 ## 3단계. 하위 폴더 만들고 목록 보기

@@ -7,7 +7,7 @@
 
 | # | 강좌 (폴더) | 내용 | 예제 코드 |
 |---|-------------|------|-----------|
-| 00 | [dev-environment-setup](courses/00-dev-environment-setup/) | Windows/macOS 도구 일괄 설치 스크립트 + 확인 · Codex 로그인 | 설치·확인 스크립트 |
+| 00 | [dev-environment-setup](courses/00-dev-environment-setup/) | Windows/macOS 도구 일괄 설치(**더블클릭**) + 확인 · `~/workspace` 규칙 · Codex 로그인 | 설치·확인 스크립트 |
 | 01 | [cli](courses/01-cli/) | 터미널 · `pwd`/`ls`/`cd`/`mkdir` · **절대/상대 경로** · `ipconfig` 로 내 IP | — |
 | 02 | [git](courses/02-git/) | 버전 관리 · git-flow · rebase · **conflict 해결** · GitHub 협업 설정 | — |
 | 03 | [esp32-programming](courses/03-esp32-programming/) | 디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial · WiFi + HTTP | PlatformIO 프로젝트 6개 |
@@ -47,6 +47,7 @@ cosmos-technical-fundamentals/
 ## 시작하기
 
 ```bash
+cd ~/workspace               # 동아리 규칙: 모든 자료·프로젝트는 ~/workspace 안에 (아래 참고)
 git clone https://github.com/st-cosmos/cosmos-technical-fundamentals.git
 cd cosmos-technical-fundamentals
 code .                       # VS Code 로 열기 (추천 확장 안내가 뜸)
@@ -54,6 +55,23 @@ code .                       # VS Code 로 열기 (추천 확장 안내가 뜸)
 
 신입 부원은 **00 → 01 → 02 → …** 순서로 각 강좌 폴더의 `README.md` 부터 읽으면 됩니다.
 (00 강좌는 Git 이 없어도 되도록 ZIP 다운로드 안내를 포함합니다.)
+
+## 폴더 규칙 — 전부 `~/workspace` 안에
+
+동아리의 모든 자료와 프로젝트는 **홈 폴더 안의 `workspace` 폴더**에 둡니다. 00 강좌에서 이 폴더를 만들고
+(설치 스크립트도 없으면 만들어 줍니다), 이후 모든 강좌의 `cd ~/workspace/...` 는 이 규칙을 전제합니다.
+
+```
+~/workspace/                          Windows: C:\Users\<내이름>\workspace
+├── cosmos-technical-fundamentals/    ← 이 저장소 (00 에서 ZIP, 02 부터 git clone)
+├── cosmos-practice/  path-practice/  01-cli 실습 폴더
+├── git-practice/  branch-practice/   02-git 실습 저장소
+├── hello-uv/                         05 실습에서 만드는 uv 프로젝트
+├── led-server/  led-panel-codex/     07 실습용 복사본·작업 폴더
+└── ...                               각자 만드는 프로젝트
+```
+
+> 💡 Windows PowerShell 도 `~` 를 홈 폴더로 이해하므로 `cd ~/workspace` 가 양쪽에서 똑같이 됩니다.
 
 ## 예제 실행 (요약)
 
@@ -82,6 +100,10 @@ VS Code 에서는 **Marp for VS Code** 확장으로 미리보기/내보내기가
 슬라이드 frontmatter 는 `theme: cosmos` 한 줄이면 됩니다.
 
 > 🎨 **슬라이드 템플릿 교체**: `shared/marp-theme.css` 한 파일만 바꾸면 8개 강좌 전체에 반영됩니다. 강조색은 `--accent`.
+>
+> 🔤 **폰트**: 본문 Pretendard, 코드 JetBrains Mono 를 웹폰트(CDN)로 불러와 PDF 에 임베드합니다.
+> 빌드 시 인터넷이 필요하며, 오프라인이면 시스템 폰트(맑은 고딕 등)로 자동 대체됩니다.
+> 코드가 긴 슬라이드는 `<!-- _class: dense -->` 를 붙이면 한 단계 촘촘하게 나옵니다.
 
 ## 공통 규칙
 

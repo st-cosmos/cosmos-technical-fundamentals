@@ -137,7 +137,7 @@ codex                         # 기본: 폴더 안 수정 OK, 위험한 건 물�
 
 ```bash
 codex -i screenshot.png "이 화면처럼 만들어줘"     # 이미지 첨부 (디자인 시안·에러 스크린샷)
-codex -C ~/projects/led-server "..."               # 다른 폴더를 작업 공간으로
+codex -C ~/workspace/led-server "..."               # 다른 폴더를 작업 공간으로
 codex --search "FastAPI 최신 버전의 WebSocket 예제를 찾아 적용해줘"   # 웹 검색 허용
 codex resume --last                                # 직전 대화 이어서
 codex exec "README 의 오타를 고쳐줘"               # 대화 없이 한 번 실행하고 종료 (자동화·스크립트용)

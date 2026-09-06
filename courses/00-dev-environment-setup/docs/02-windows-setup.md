@@ -2,47 +2,39 @@
 
 ## 한 줄 요약
 
-> **기본 PowerShell(파란 창)** 을 열고 → **설치 스크립트 1개** 실행 → **확인 스크립트** 로 검증 →
-> 수동 설정 3가지(Git 이름·Codex 로그인·VS Code 첫 실행). 20~30분.
+> 홈 폴더에 **`workspace`** 폴더 만들기 → 저장소 ZIP 을 그 안에 풀기 → **`install-windows.cmd` 더블클릭** →
+> **`check-windows.cmd` 더블클릭** 으로 검증 → 수동 설정 3가지(Git 이름·Codex 로그인·VS Code 첫 실행). 20~30분.
+> 터미널을 아직 몰라도 됩니다 — **더블클릭 두 번**이면 설치가 끝납니다.
 
 설치되는 것: PowerShell 7 · Git · VS Code · Python 3.12 · uv · Codex CLI · VS Code 확장(PlatformIO, Git Graph)
 
-## 1. 이 저장소 받기
+## 1. 작업 폴더 만들고 저장소 받기
 
-아직 Git 이 없으므로 **ZIP 으로** 받습니다.
+동아리의 모든 자료와 프로젝트는 **홈 폴더 안의 `workspace` 폴더**에 둡니다. 앞으로 모든 강좌가 이 규칙을 따릅니다.
 
-1. GitHub 저장소 페이지 → 초록색 **Code** 버튼 → **Download ZIP**
-2. 압축을 풀어 예를 들어 `C:\Users\<내이름>\cosmos-technical-fundamentals` 에 둡니다
+1. 탐색기에서 홈 폴더 `C:\Users\<내이름>` 을 열고 **새 폴더 → 이름 `workspace`**
+2. GitHub 저장소 페이지 → 초록색 **Code** 버튼 → **Download ZIP** (아직 Git 이 없으므로 ZIP 으로)
+3. 받은 ZIP 을 `workspace` 안에 풀고, 폴더 이름 끝의 `-main` 을 지웁니다. 최종 위치:
+
+```
+C:\Users\<내이름>\workspace\cosmos-technical-fundamentals\
+```
 
 ![저장소 ZIP 다운로드](../images/win-01-download-zip.png)
 
 > 💡 Git 설치가 끝난 뒤 02-git 강좌에서 `git clone` 으로 다시 받게 됩니다. 지금은 ZIP 으로 충분합니다.
 
-## 2. PowerShell 열기
+## 2. 설치 스크립트 더블클릭
 
-시작 메뉴에서 **PowerShell** 을 검색해 실행합니다. (파란 창 — 아직 5.1 입니다. 스크립트가 7 을 설치해 줍니다)
+탐색기에서 `workspace\cosmos-technical-fundamentals\courses\00-dev-environment-setup\scripts` 로 들어가
+**`install-windows.cmd`** 를 더블클릭합니다.
 
-![시작 메뉴에서 PowerShell 검색](../images/win-02-open-powershell.png)
+- 인터넷에서 받은 파일이라 **"이 파일을 실행하시겠습니까?"** 창이 뜹니다 → **실행**.
+  **"Windows의 PC 보호"** 파란 창이면 **추가 정보 → 실행** 을 누릅니다.
+- 검은 창이 열리고 winget 으로 도구를 하나씩 설치합니다. 도구마다 **UAC(사용자 계정 컨트롤) 창**이 뜨면 **예**.
+- 이미 설치된 것은 건너뜁니다. 실패한 것은 마지막에 목록으로 알려 줍니다. 끝나면 **아무 키나 눌러** 창을 닫습니다.
 
-압축을 푼 폴더 안의 `courses\00-dev-environment-setup` 으로 이동합니다.
-
-```powershell
-cd C:\Users\<내이름>\cosmos-technical-fundamentals\courses\00-dev-environment-setup
-```
-
-> 💡 폴더 탐색기에서 해당 폴더를 열고, 빈 곳을 **Shift + 우클릭 → "여기에 PowerShell 창 열기"** 를
-> 눌러도 됩니다. 주소창에 `powershell` 을 입력해도 그 폴더에서 열립니다.
-
-## 3. 설치 스크립트 실행
-
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\scripts\install-windows.ps1
-```
-
-- 첫 줄은 **이 창에서만** 스크립트 실행을 허용합니다 (창을 닫으면 원래대로).
-- 스크립트가 winget 으로 도구를 하나씩 설치합니다. 도구마다 **UAC(사용자 계정 컨트롤) 창**이 뜨면 **예**.
-- 이미 설치된 것은 건너뜁니다. 실패한 것은 마지막에 목록으로 알려 줍니다.
+![설치 파일 보안 경고](../images/win-02-security-warning.png)
 
 ![설치 스크립트 실행 화면](../images/win-03-install-script.png)
 
@@ -52,19 +44,37 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 > ⚠️ `winget` 을 찾을 수 없다는 오류가 나면 Microsoft Store 에서 **"앱 설치 관리자(App Installer)"** 를
 > 업데이트한 뒤 다시 실행하세요.
 
-## 4. 새 터미널 열고 확인
+### 터미널로 실행하려면 (선택)
 
-설치가 끝나면 **창을 닫고**, 이번엔 시작 메뉴에서 **PowerShell 7** (검은 아이콘, `pwsh`) 을 실행합니다.
-새로 열어야 방금 설치한 프로그램들이 PATH 에 반영됩니다.
+시작 메뉴에서 **PowerShell** (파란 창) 을 열고:
 
 ```powershell
-cd C:\Users\<내이름>\cosmos-technical-fundamentals\courses\00-dev-environment-setup
-.\scripts\check-windows.ps1
+cd ~\workspace\cosmos-technical-fundamentals\courses\00-dev-environment-setup
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\scripts\install-windows.ps1
 ```
 
-![PowerShell 7 에서 확인 스크립트 실행](../images/win-04-check-script.png)
+`~` 는 홈 폴더입니다. 둘째 줄은 **이 창에서만** 스크립트 실행을 허용합니다 (창을 닫으면 원래대로).
 
-모든 줄이 ✅ 면 설치 완료입니다. ❌ 가 있으면 [04. 확인과 문제 해결](04-verify-and-troubleshoot.md) 을 보세요.
+## 3. 확인 스크립트 더블클릭
+
+설치 창을 닫은 뒤, 같은 폴더의 **`check-windows.cmd`** 를 더블클릭합니다. 새 창이 열리므로 방금 설치한
+프로그램들이 바로 인식됩니다.
+
+![확인 스크립트 결과](../images/win-04-check-script.png)
+
+모든 줄이 `[OK]` 면 설치 완료입니다. `[MISSING]` 이 있으면 [04. 확인과 문제 해결](04-verify-and-troubleshoot.md) 을 보세요.
+
+> 💡 터미널로 하려면: 시작 메뉴에서 **PowerShell 7** (검은 아이콘, `pwsh`) 을 **새로** 열고
+> `cd ~\workspace\cosmos-technical-fundamentals\courses\00-dev-environment-setup` → `.\scripts\check-windows.ps1`.
+> 새로 열어야 방금 설치한 프로그램이 PATH 에 반영됩니다.
+
+## 4. 앞으로 쓸 터미널 — PowerShell 7
+
+여기까지 됐으면 앞으로 터미널은 시작 메뉴의 **PowerShell 7** (검은 아이콘, `pwsh`) 을 씁니다.
+아래 5~7절의 명령도 이 창에서 칩니다.
+
+![시작 메뉴에서 PowerShell 7 검색](../images/win-02-open-powershell.png)
 
 ## 5. 수동 설정 ① — Git 이름과 이메일
 
@@ -113,7 +123,7 @@ codex login status      # "Logged in" 이면 성공
 
 ## 완료 체크
 
-- [ ] `check-windows.ps1` 전부 ✅
+- [ ] `check-windows.cmd` 전부 ✅
 - [ ] `git config --global user.name` 에 내 이름이 나온다
 - [ ] `codex login status` 가 로그인됨을 표시한다
 - [ ] VS Code 에 PlatformIO 🛸 · Git Graph 아이콘이 보인다

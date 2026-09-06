@@ -12,8 +12,8 @@
 
 | | 우편 주소로 비유 | 경로 |
 |---|------------------|------|
-| **절대(absolute)** | "서울시 강남구 테헤란로 1" — 어디서 말해도 같은 곳 | `C:\Users\나\projects\web-01` |
-| **상대(relative)** | "여기서 오른쪽으로 두 블록" — **지금 어디 있느냐**에 따라 달라짐 | `projects\web-01`, `..\web-02` |
+| **절대(absolute)** | "서울시 강남구 테헤란로 1" — 어디서 말해도 같은 곳 | `C:\Users\나\workspace\web-01` |
+| **상대(relative)** | "여기서 오른쪽으로 두 블록" — **지금 어디 있느냐**에 따라 달라짐 | `workspace\web-01`, `..\web-02` |
 
 - 절대 경로는 **길지만 확실**합니다. 내가 어느 폴더에 있든 같은 곳을 가리킵니다.
 - 상대 경로는 **짧지만 현재 위치에 의존**합니다. 같은 `..\web-02` 라도 내가 어디 있느냐에 따라 다른 곳입니다.
@@ -24,8 +24,8 @@
 
 | OS | 뿌리 | 절대 경로 예 |
 |----|------|--------------|
-| **Windows** | 드라이브 문자 `C:\` | `C:\Users\나\projects\web-01` |
-| **macOS** | `/` (슬래시 하나) | `/Users/나/projects/web-01` |
+| **Windows** | 드라이브 문자 `C:\` | `C:\Users\나\workspace\web-01` |
+| **macOS** | `/` (슬래시 하나) | `/Users/나/workspace/web-01` |
 
 > 📌 **구분 기호**: Windows 는 `\`(역슬래시), macOS 는 `/`(슬래시). 다만 **PowerShell 과 대부분의 개발 도구는
 > Windows 에서도 `/` 를 이해**하므로, 이 자료의 예제는 가능한 `/` 로 통일합니다. (`cd C:/Users/나` 도 됩니다)
@@ -35,9 +35,9 @@
 **시작이 `C:\` (드라이브) 또는 `/` 이면 절대 경로**입니다. 그 외는 전부 상대 경로.
 
 ```
-C:\Users\나\projects     절대 (C:\ 로 시작)
-/Users/나/projects       절대 (/ 로 시작)
-projects\web-01          상대 (그냥 이름으로 시작)
+C:\Users\나\workspace     절대 (C:\ 로 시작)
+/Users/나/workspace       절대 (/ 로 시작)
+workspace\web-01          상대 (그냥 이름으로 시작)
 ..\web-02                상대 (.. 로 시작)
 ./main.py                상대 (. 로 시작)
 ```
@@ -52,11 +52,11 @@ projects\web-01          상대 (그냥 이름으로 시작)
 | `..` | **한 칸 위(상위) 폴더** | "한 층 위" |
 | `~` | **내 홈 폴더** (`C:\Users\나` / `/Users/나`) | "우리 집" — 어디서든 통하는 지름길 |
 
-예를 들어 지금 위치가 `C:\Users\나\projects\web-01` 이라면:
+예를 들어 지금 위치가 `C:\Users\나\workspace\web-01` 이라면:
 
 ```
 C:\Users\나\
-   └── projects\
+   └── workspace\
         ├── web-01\        ← ★ 지금 여기 (pwd)
         │    ├── index.html
         │    └── css\
@@ -67,14 +67,14 @@ C:\Users\나\
 
 | 상대 경로 | 실제로 가리키는 곳 (절대 경로) | 읽는 법 |
 |-----------|-------------------------------|---------|
-| `.` | `C:\Users\나\projects\web-01` | 여기 |
+| `.` | `C:\Users\나\workspace\web-01` | 여기 |
 | `index.html` 또는 `./index.html` | `...\web-01\index.html` | 여기 안의 index.html |
 | `css/style.css` | `...\web-01\css\style.css` | 여기 안의 css 안의 style.css |
-| `..` | `C:\Users\나\projects` | 한 칸 위 |
-| `../web-02` | `C:\Users\나\projects\web-02` | 한 칸 위로 나가서 web-02 로 |
+| `..` | `C:\Users\나\workspace` | 한 칸 위 |
+| `../web-02` | `C:\Users\나\workspace\web-02` | 한 칸 위로 나가서 web-02 로 |
 | `../web-02/main.py` | `...\web-02\main.py` | 한 칸 위 → web-02 → main.py |
 | `../..` | `C:\Users\나` | 두 칸 위 |
-| `~/projects` | `C:\Users\나\projects` | 홈에서 projects 로 (현재 위치와 무관) |
+| `~/workspace` | `C:\Users\나\workspace` | 홈에서 workspace 로 (현재 위치와 무관) |
 
 > 💡 `..` 는 여러 번 이어 쓸 수 있습니다. `../../..` 는 세 칸 위. 단, **뿌리보다 위로는 못 갑니다.**
 
@@ -85,12 +85,12 @@ C:\Users\나\
 
 ## 4. 직접 읽어 보기 — 퀴즈
 
-지금 위치가 **`/Users/나/projects/esp32`** 라고 합시다. 다음은 각각 어디를 가리킬까요? (답은 아래)
+지금 위치가 **`/Users/나/workspace/esp32`** 라고 합시다. 다음은 각각 어디를 가리킬까요? (답은 아래)
 
 ```
 /Users/나/
    ├── Documents/
-   └── projects/
+   └── workspace/
         ├── esp32/         ← ★ 지금 여기
         │    └── src/
         │         └── main.cpp
@@ -104,17 +104,17 @@ C:\Users\나\
 3. `../web/static/index.html`
 4. `../../Documents`
 5. `~/Documents`
-6. `/Users/나/projects/web`
+6. `/Users/나/workspace/web`
 
 <details>
 <summary>답</summary>
 
-1. `/Users/나/projects/esp32/src/main.cpp`
-2. `/Users/나/projects/web`
-3. `/Users/나/projects/web/static/index.html`
+1. `/Users/나/workspace/esp32/src/main.cpp`
+2. `/Users/나/workspace/web`
+3. `/Users/나/workspace/web/static/index.html`
 4. `/Users/나/Documents`
 5. `/Users/나/Documents` (4번과 같은 곳 — 홈 기준이라 현재 위치와 무관)
-6. 절대 경로라 그대로 `/Users/나/projects/web` (2번과 같은 곳)
+6. 절대 경로라 그대로 `/Users/나/workspace/web` (2번과 같은 곳)
 
 </details>
 

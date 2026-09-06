@@ -6,13 +6,21 @@
 > 📎 관련 문서: Windows [docs/02](../docs/02-windows-setup.md) · macOS [docs/03](../docs/03-macos-setup.md) ·
 > 문제 해결 [docs/04](../docs/04-verify-and-troubleshoot.md)
 
-## 1단계. 설치 스크립트 실행
+## 0단계. `workspace` 폴더
 
-OS 에 맞는 문서를 따라 설치 스크립트를 실행합니다. (인터넷 속도에 따라 5~15분)
+홈 폴더 안에 `workspace` 폴더를 만들고, 저장소 ZIP 을 그 안에 풉니다. (OS 문서 1절) 앞으로 모든 자료는 여기에.
 
-## 2단계. 새 터미널에서 확인 스크립트
+## 1단계. 설치 스크립트 더블클릭
 
-터미널을 **새로 열고** (Windows 는 **PowerShell 7**) 확인 스크립트를 실행해 결과를 봅니다.
+OS 에 맞는 문서를 따라 `scripts` 폴더의 설치 스크립트를 **더블클릭**합니다. (인터넷 속도에 따라 5~15분)
+
+- Windows: `install-windows.cmd` · macOS: `install-macos.command`
+
+## 2단계. 확인 스크립트 더블클릭
+
+같은 폴더의 확인 스크립트를 더블클릭해 결과를 봅니다. (Windows: `check-windows.cmd` · macOS: `check-macos.command`)
+
+터미널로 하려면 **새 터미널**(Windows 는 **PowerShell 7**)에서:
 
 ```powershell
 # Windows
@@ -21,7 +29,7 @@ OS 에 맞는 문서를 따라 설치 스크립트를 실행합니다. (인터�
 
 ```bash
 # macOS
-bash scripts/check-macos.sh
+bash scripts/check-macos.command
 ```
 
 ## 3단계. 직접 버전 확인해 보기
@@ -47,6 +55,7 @@ python --version        # macOS 는 python3 --version
 | 항목 | 버전 / 상태 |
 |------|-------------|
 | OS (Windows / macOS) | |
+| `~/workspace/cosmos-technical-fundamentals` 에 저장소가 있다 | ☐ |
 | 터미널 (Windows: `pwsh` 버전) | |
 | Git | |
 | VS Code | |

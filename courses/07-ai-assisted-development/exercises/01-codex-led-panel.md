@@ -15,7 +15,7 @@ Codex 에게 **작은 웹 페이지를 요청**하고, 결과를 **검토 → �
 ## 🧰 준비
 
 - 설치·로그인이 끝난 **Codex CLI** (`codex --version`, `codex login status`)
-- 실습용 **빈 폴더** 하나 (예: `~/projects/led-panel-codex`)
+- 실습용 **빈 폴더** 하나 (`~/workspace/led-panel-codex`)
 - 결과 확인용 **웹 브라우저**
 
 > 💡 명령·화면 문구는 버전에 따라 다를 수 있습니다. 똑같지 않아도 **비슷한 기능**을 찾으세요 (`/` 목록, `codex --help`).
@@ -25,6 +25,7 @@ Codex 에게 **작은 웹 페이지를 요청**하고, 결과를 **검토 → �
 ### 1단계 — 폴더 만들고 git 안전망
 
 ```bash
+cd ~/workspace             # 동아리 규칙: 프로젝트는 전부 이 안에
 mkdir led-panel-codex
 cd led-panel-codex
 git init
