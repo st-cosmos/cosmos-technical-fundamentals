@@ -72,6 +72,10 @@ uv run uvicorn main:app --reload
 > 💡 다른 기기(친구 노트북·ESP32)에서도 접속하게 하려면 `--host 0.0.0.0` 을 붙입니다.
 > `uv run uvicorn main:app --reload --host 0.0.0.0 --port 8000` → 다른 기기에서 `http://<내 PC IP>:8000`
 > ([01-cli IP 확인](../../01-cli/docs/04-network-ip.md))
+>
+> ⚠️ **`0.0.0.0` 은 접속 주소가 아닙니다.** "이 PC 의 모든 네트워크에서 오는 연결을 받아라" 는 서버 쪽 설정일 뿐이라,
+> uvicorn 이 `Uvicorn running on http://0.0.0.0:8000` 이라고 찍어도 그 주소를 브라우저에 넣으면 (특히 Windows 에서) 연결이 안 됩니다.
+> 내 PC 에서는 여전히 **`http://localhost:8000`**, 다른 기기에서는 **`http://<내 PC IP>:8000`** 으로 접속하세요.
 
 ## 5. 정적 파일 서빙 — LED 제어판 올리기
 

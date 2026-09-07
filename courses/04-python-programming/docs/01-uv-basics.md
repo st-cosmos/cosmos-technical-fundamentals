@@ -93,8 +93,13 @@ dependencies = [
 | `uv python list` | 설치된/설치 가능한 Python 목록 |
 | `uvx <도구>` | 설치 없이 도구 바로 실행 (예: `uvx ruff check .`) — npx 같은 느낌 |
 
-> 💡 **남의 프로젝트를 받았다면**: `git clone` → 폴더로 이동 → `uv sync` → `uv run main.py`. 끝.
-> `requirements.txt` 를 읽고 `pip install -r` 하던 시절의 모든 단계가 `uv sync` 하나입니다.
+> 💡 **남의 프로젝트를 받았다면**: `git clone` → 폴더로 이동 → `uv run main.py`. 끝. `uv run` 이 실행 전에 `.venv` 를 만들고
+> `uv.lock` 대로 설치까지 해 주므로 `uv sync` 를 따로 칠 필요는 없습니다(첫 실행만 수십 초). 실행 없이 미리 받아 두고 싶을 때 `uv sync`.
+> `requirements.txt` 를 읽고 `pip install -r` 하던 시절의 모든 단계가 이 한 번에 들어 있습니다.
+
+> ⚠️ **프로젝트 폴더를 옮기거나 이름을 바꾸거나 복사했더니** `uv run uvicorn` 같은 명령이
+> `error: uv trampoline failed to canonicalize script path` 로 죽는다면: `.venv` 안의 실행 파일들이 **옛 절대 경로**를 기억하고 있어서입니다.
+> `.venv` 폴더를 지우고 `uv sync` 하면 몇 초 만에 새로 만들어집니다. (`.venv` 는 git 에 올라가지 않으니 지워도 잃는 것 없음)
 
 ## 6. 대화형 셸 — 한 줄씩 실험하기
 
