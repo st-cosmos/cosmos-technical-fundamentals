@@ -75,11 +75,16 @@ git log --oneline --graph --all
 ```bash
 git switch develop
 # 지금 브랜치: develop   ← 합치기는 "받는 쪽" 브랜치에 서서
-git merge feature/add-greeting     # rebase 해뒀으니 깔끔하게(fast-forward) 합쳐짐
+git merge --no-ff feature/add-greeting -m "Merge feature/add-greeting: 인사말 추가"   # 우리 팀 규칙: merge 커밋 남기기
 git log --oneline --graph --all
 ```
 
-이력이 **한 줄로 직선**인 것을 확인하세요. 이게 rebase 기반 워크플로우의 효과입니다.
+그래프를 보세요. feature 의 커밋들은 **직선으로 정리**되어 있고(rebase 효과), 그 위에 **merge 커밋 하나**가
+"여기서 인사말 기능이 들어왔다" 고 표시합니다(`--no-ff` 효과). Git Graph 에서도 같은 모양이 보입니다.
+
+> 💡 `--no-ff` 를 빼고 `git merge` 만 하면 **fast-forward** 되어 feature 커밋이 develop 에 그냥 이어 붙고
+> 기능 경계가 사라집니다. 한번 `git merge --abort` 없이도 비교해 보고 싶다면, 병합 전 `git log --oneline -1` 로
+> develop 의 커밋 해시를 적어 두고 `git reset --hard <그 해시>` 로 되돌린 뒤 옵션 없이 merge 해 보세요(연습용 저장소니까 안전).
 
 ## 6. 정리
 

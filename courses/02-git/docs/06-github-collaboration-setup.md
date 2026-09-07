@@ -4,7 +4,7 @@ GitHub 저장소를 만들면 끝이 아니라, **팀이 안전하게 협업하�
 켜두는 게 좋습니다. 3~5인 소규모 팀에 딱 맞는, **꼭 필요한 것만** 정리했습니다.
 
 > 이 설정들의 목표: ① `main`/`develop`을 실수로 망치지 않기 ② 모든 변경이
-> **리뷰를 거치게** 하기 ③ 이력을 깔끔하게(rebase 기본) 유지하기
+> **리뷰를 거치게** 하기 ③ 이력을 깔끔하게(rebase 로 정리 + `--no-ff` merge 커밋) 유지하기
 
 ## 0. 한눈에 보는 체크리스트
 
@@ -12,7 +12,7 @@ GitHub 저장소를 만들면 끝이 아니라, **팀이 안전하게 협업하�
 
 - [ ] **Branch protection** — `main`, `develop` 보호 (직접 push 금지, PR 필수)
 - [ ] **PR 1명 이상 리뷰 승인** 필수
-- [ ] **머지 방식 정리** — Squash 또는 Rebase만 허용, merge commit 끄기
+- [ ] **머지 방식 정리** — merge commit(`--no-ff`)만 허용, Squash·Rebase 버튼 끄기
 - [ ] **머지된 브랜치 자동 삭제** 켜기
 - [ ] **PR/이슈 템플릿, CODEOWNERS** 추가 (이 저장소에 이미 포함)
 - [ ] (선택) **CI 통과를 머지 조건**으로
@@ -28,23 +28,23 @@ GitHub 저장소를 만들면 끝이 아니라, **팀이 안전하게 협업하�
 | Require approvals (1명 이상) | ✅ (1) | 최소 1명 리뷰 강제 |
 | Dismiss stale approvals when new commits pushed | ✅ | 승인 후 코드 바뀌면 재리뷰 |
 | Require status checks to pass | ✅ (CI 있으면) | 깨진 코드 머지 방지 |
-| Require linear history | ✅ | rebase/squash 기본 팀에 적합 (merge commit 차단) |
+| Require linear history | ☐ **끔** | 우리 팀은 `--no-ff` merge 커밋을 남기므로 켜면 병합이 막힘 |
 | Do not allow bypassing the above settings | ✅ | 관리자도 규칙 따르게 |
 
-> **Require linear history**를 켜면 "Create a merge commit"으로는 머지가 안 되고,
-> Squash/Rebase만 가능해집니다. 우리 팀(rebase 기본)과 잘 맞습니다.
+> **Require linear history** 는 merge 커밋을 차단하는 옵션입니다. 우리 팀 규칙(rebase 로 정리 후
+> `--no-ff` merge)과 충돌하므로 **켜지 않습니다.** 대신 PR 올리기 전 rebase 를 습관으로 합니다(04 문서 4-2).
 
 ## 2. 머지 방식 통일
 
 **Settings → General → Pull Requests** 에서:
 
-- ☐ Allow merge commits → **끄기**
-- ☑ Allow squash merging → **켜기** (작은 커밋 많은 작업에 깔끔, 팀 기본 추천)
-- ☑ Allow rebase merging → 켜기 (선형 이력 유지)
+- ☑ Allow merge commits → **켜기** — 기본 메시지는 "Pull request title and description" 추천
+- ☐ Allow squash merging → **끄기**
+- ☐ Allow rebase merging → **끄기**
 - ☑ **Automatically delete head branches** → 켜기 (머지된 feature 브랜치 자동 정리)
 
-> 팀에서 **하나로 통일**하는 게 핵심입니다. "Squash로 통일" 또는 "Rebase로 통일" 중
-> 택일하세요. 섞어 쓰면 이력이 들쭉날쭉해집니다.
+> 버튼을 **하나만** 남기는 게 핵심입니다. PR 의 "Create a merge commit" = 로컬의 `git merge --no-ff`.
+> 결과가 같으니 로컬에서 합치든 GitHub 에서 합치든 이력 모양이 똑같아집니다.
 
 ## 3. 이 저장소에 이미 들어있는 협업 파일
 
@@ -94,10 +94,11 @@ GitHub 저장소를 만들면 끝이 아니라, **팀이 안전하게 협업하�
 소규모 팀이 **이것만** 해도 협업 품질이 확 올라갑니다:
 
 1. `main`/`develop`에 **branch protection** + **PR 1명 리뷰 필수**
-2. **Squash(또는 Rebase)로 머지 통일**, merge commit 끄기, 머지 후 브랜치 자동 삭제
+2. **merge commit(`--no-ff`)으로 머지 통일**, Squash·Rebase 버튼 끄기, 머지 후 브랜치 자동 삭제
 3. **PR/이슈 템플릿 + CODEOWNERS**로 리뷰 흐름 자동화
 
 ---
 
 ⬅️ 이전: [05. conflict 원인과 해결](05-conflict-causes-and-resolution.md)
+➡️ 다음: [07. Git 치트시트](07-cheatsheet.md)
 🏠 처음으로: [README](../README.md)

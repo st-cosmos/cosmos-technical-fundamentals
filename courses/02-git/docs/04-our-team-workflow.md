@@ -138,15 +138,27 @@ git push --force-with-lease     # rebase로 이력이 바뀌었으니 강제 푸
    그냥 `--force`는 남의 작업을 덮어쓸 수 있습니다. `--force-with-lease`는
    "내가 본 이후 원격이 안 바뀌었을 때만" 밀어내서 안전합니다.
 
-### 4-4. GitHub 병합 버튼은 어떤 걸?
+### 4-4. 합칠 때는 `--no-ff` merge — 우리 팀 규칙
 
-PR 병합 시 GitHub은 3가지 버튼을 줍니다. 우리 팀 권장:
+feature 를 rebase 로 정리한 뒤, develop 에 합칠 때는 **merge 커밋을 꼭 남깁니다.**
 
-- **Rebase and merge** 또는 **Squash and merge** 사용
-- **Create a merge commit** 은 끔 (저장소 설정에서 비활성화 권장 — 06 문서)
+```bash
+# 지금 브랜치: develop  (feature 는 4-2 로 이미 최신 develop 위에 정리됨)
+git merge --no-ff feature/내작업 -m "Merge feature/내작업: 무엇을 했는지"
+```
 
-> **Squash and merge**: feature의 여러 커밋을 **한 개로 합쳐** develop에 올립니다.
-> 작은 커밋이 많은 작업에 깔끔해서, 많은 팀이 기본으로 씁니다. 팀에서 하나로 통일하세요.
+```
+rebase 만 하고 그냥 merge (fast-forward)      rebase 후 --no-ff merge (우리 팀)
+   develop  A─B─E─C'─D'                          develop  A─B─E───────M
+   → 기능 경계가 사라짐                                        \       /
+                                                   feature       C'─D'
+                                                 → "여기서 로그인 기능이 들어왔다" 가 보임
+```
+
+- **rebase 는 정리용, merge 는 기록용.** 커밋 하나하나는 직선으로 읽히고, 기능 단위 경계는 merge 커밋으로 남습니다.
+- 기능 통째로 되돌릴 때 `git revert -m 1 <merge 커밋>` 한 줄이면 됩니다.
+- **GitHub PR 병합 버튼은 "Create a merge commit"** 을 씁니다 (= `--no-ff`). Squash/Rebase 버튼은 저장소 설정에서 끕니다 — 06 문서.
+- PR 올리기 전에 4-2 의 rebase 를 해 두면, merge 커밋 아래 이력이 깔끔한 직선이 됩니다.
 
 ## 5. 흔한 막힘 포인트
 

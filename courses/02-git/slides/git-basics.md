@@ -245,7 +245,7 @@ rebase: 내 커밋을 최신 위로 옮겨붙임 → 한 줄로 깔끔
    develop A─B─C'─D'
 ```
 
-> 우리 팀은 **rebase 기본** — 이력이 직선이라 읽기 쉬움
+> 우리 팀은 **둘 다**: feature 를 **rebase 로 정리**(직선) → develop 에 **`--no-ff` merge**(기능 경계 기록)
 
 ---
 
@@ -351,12 +351,32 @@ git rebase --abort     # 또는 git merge --abort
 ## 꼭 켜둘 것
 
 - **Branch protection** (`main`/`develop`)
-  - PR 필수 · **리뷰 1명 이상 승인** · linear history
-- **머지 방식 통일**: Squash(또는 Rebase)만, merge commit 끄기
+  - PR 필수 · **리뷰 1명 이상 승인** (linear history 는 **끔** — merge 커밋을 남기니까)
+- **머지 방식 통일**: **Create a merge commit** 만 (= `--no-ff`), Squash·Rebase 버튼 끄기
 - **머지된 브랜치 자동 삭제**
 - **PR/이슈 템플릿 + CODEOWNERS** (저장소에 포함)
 
 > 목표: main/develop 안 망치기 · 모든 변경 리뷰 거치기 · 이력 깔끔하게
+
+---
+
+## 치트시트 — 한 기능의 처음부터 끝까지
+
+```bash
+git init && git add . && git commit -m "프로젝트 시작"     # ① 초기화 (또는 git clone <주소>)
+git remote add origin <주소> && git push -u origin main     #    GitHub 연결 + 첫 push
+
+git switch develop && git pull                              # ② 최신 develop 에서
+git switch -c feature/login                                 #    브랜치 만들고 이동
+git add . && git commit -m "무엇을 왜"                       # ③ 커밋 (반복)
+
+git fetch origin && git rebase origin/develop               # ④ 최신 develop 위로 정리 (feature 에 서서)
+git switch develop && git pull                              # ⑤ develop 으로 가서
+git merge --no-ff feature/login -m "Merge feature/login"    #    merge 커밋 남기며 합치기
+git push && git branch -d feature/login                     # ⑥ 올리고 정리
+```
+
+<div class="small">막히면 <code>git status</code> → 원상복구는 <code>git rebase --abort</code> / <code>git merge --abort</code> · 전체 표는 docs/07-cheatsheet.md</div>
 
 ---
 
@@ -371,7 +391,7 @@ git rebase --abort     # 또는 git merge --abort
 ## 오늘의 핵심
 
 - **흐름**: 작업 → add → commit → push / pull
-- **우리 팀**: develop → feature → PR → 리뷰 → 병합 (**rebase 기본**)
+- **우리 팀**: develop → feature → **rebase 로 정리** → PR → 리뷰 → **`--no-ff` merge**
 - **충돌**: 에러 아님 · `status`로 확인 · 마커 지우고 `add` → `--continue`
 - **막히면**: `--abort`로 되돌리고 물어보기
 

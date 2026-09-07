@@ -11,7 +11,7 @@
 - **선수**: [00-dev-environment-setup](../00-dev-environment-setup/README.md) (Git · VS Code · Git Graph 설치), [01-cli](../01-cli/README.md)
 - 개발 환경: **Windows 다수 / macOS 일부**
 - 원격 저장소: **GitHub**
-- 브랜치 전략: **git-flow** · 코드 병합: **rebase 기본**
+- 브랜치 전략: **git-flow** · 코드 병합: **feature 를 rebase 로 정리한 뒤 `--no-ff` merge** (merge 커밋으로 기능 경계 기록)
 - 팀 규모: **3~5인 1팀**
 
 ## 폴더 구조
@@ -24,7 +24,8 @@
 │   ├── 03-essential-commands.md
 │   ├── 04-our-team-workflow.md              (git-flow + rebase + GitHub)
 │   ├── 05-conflict-causes-and-resolution.md ★ 핵심
-│   └── 06-github-collaboration-setup.md
+│   ├── 06-github-collaboration-setup.md
+│   └── 07-cheatsheet.md                     매일 쓰는 명령 한 장 (init · 브랜치 · 커밋 · rebase → --no-ff merge · push/pull)
 ├── exercises/
 │   ├── 01-installation-and-first-commit.md
 │   ├── 02-branch-and-rebase.md
@@ -44,6 +45,7 @@
 4. `exercises/02` 브랜치/rebase 실습 — **Git Graph** 로 그래프를 보면서
 5. `docs/05` conflict → `exercises/03` 충돌 직접 해결 ★
 6. `docs/06` GitHub 설정 (팀 리더/리뷰어 위주)
+7. `docs/07` 치트시트 — 북마크해 두고 실습·프로젝트 중 "다음 명령 뭐지?" 할 때
 
 ## 실습용 저장소
 
