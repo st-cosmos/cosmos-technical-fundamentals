@@ -178,7 +178,9 @@ C:\Users\나\workspace\
 
 ---
 
-## 퀴즈 — 지금 `/Users/나/workspace/esp32` 라면?
+## 퀴즈 — `code ____` 빈칸을 채우세요
+
+지금 위치는 `/Users/나/workspace/esp32`. VS Code 로 열려면 빈칸에 무엇을 쓸까요?
 
 ```
 /Users/나/
@@ -188,12 +190,14 @@ C:\Users\나\workspace\
         └── web/    (static/index.html)
 ```
 
-1. `src/main.cpp` → ?
-2. `../web/static/index.html` → ?
-3. `../../Documents` → ?
-4. `~/Documents` → ?
+| 열고 싶은 것 | 명령 |
+|--------------|------|
+| ① 지금 폴더(esp32) 전체 | `code ____` |
+| ② esp32 안의 `main.cpp` | `code ____` |
+| ③ 옆 폴더 web 의 `index.html` | `code ____` |
+| ④ 홈의 `Documents` 폴더 — **두 가지** 방법으로 | `code ____` / `code ____` |
 
-<div class="small">답: ① esp32/src/main.cpp ② workspace/web/static/index.html ③ /Users/나/Documents ④ 같은 곳(홈 기준이라 위치 무관)</div>
+<div class="small">답: ① <code>.</code> ② <code>src/main.cpp</code> ③ <code>../web/static/index.html</code> ④ <code>../../Documents</code> 또는 <code>~/Documents</code> (홈 기준이라 어디서든 같음)</div>
 
 ---
 
