@@ -10,7 +10,7 @@
 
 - **대상**: AI 도구로 개발 생산성을 높이고 싶은 동아리 부원 (입문)
 - **선수**: [00](../00-dev-environment-setup/README.md) (Codex CLI 설치·로그인), [01-cli](../01-cli/README.md), [02-git](../02-git/README.md).
-  04·06 강좌를 마쳤으면 실습 02 가 훨씬 재미있습니다
+  03·05 강좌를 마쳤으면 실습 02 가 훨씬 재미있습니다
 - **도구**: **Codex CLI** (터미널), VS Code, 웹 브라우저, ChatGPT 계정
 
 > ⚠️ AI 개발 도구는 **업데이트가 매우 빠릅니다.** 명령·화면·옵션 이름이 자료와 다를 수 있으니, 막히면 `codex --help` 와
@@ -27,7 +27,7 @@
 │   └── 04-practical-workflow.md        실전 흐름: 기능 추가 · 버그 수정 · 검증 · 흔한 실수
 ├── exercises/
 │   ├── 01-codex-led-panel.md           말로 시켜서 LED 제어판 만들기 (요청→검토→실행→피드백)
-│   └── 02-codex-extend-server.md       06 의 LED 서버에 이력 API + 화면 추가 시키기 ★
+│   └── 02-codex-extend-server.md       05 의 LED 서버에 이력 API + 화면 추가 시키기 ★
 ├── examples/
 │   └── led-panel/                      참고 완성본 — 디자인 시안(preview.png) → index.html·style.css·script.js
 └── slides/
@@ -39,7 +39,7 @@
 1. 🤖 `docs/01` AI 에이전트 코딩이 무엇이고 **어떻게 잘 시키는가**
 2. 🧭 `docs/02` Codex CLI 실행·승인 모드·첫 요청 → **`exercises/01`** (LED 제어판을 말로 시켜 만들기)
 3. 🧠 `docs/03` AGENTS.md 로 맥락 주기, diff 검토, git 과 함께 쓰기
-4. 🛠️ `docs/04` 실전 흐름 → **`exercises/02`** ★ (06 강좌의 LED 서버에 기능 추가)
+4. 🛠️ `docs/04` 실전 흐름 → **`exercises/02`** ★ (05 강좌의 LED 서버에 기능 추가)
 
 ## 핵심 원칙 (한 줄)
 

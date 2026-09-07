@@ -7,7 +7,7 @@ assignees: ''
 ---
 
 ## 어느 강좌 / 어느 파일인가요
-<!-- 예: courses/03-esp32-programming/exercises/02-digital-input.md -->
+<!-- 예: courses/06-esp32-programming/exercises/02-digital-input.md -->
 
 
 ## 무슨 일이 일어났나요

@@ -3,14 +3,14 @@
 ## 한 줄 요약
 
 > 실제 프로젝트에서 에이전트를 쓰는 흐름은 늘 같습니다. **준비(git·AGENTS.md) → 계획 → 작게 시키기 → 검토·실행 → 커밋**.
-> 이 문서는 06 강좌의 LED 서버를 예로 **기능 추가**와 **버그 수정** 두 시나리오를 따라갑니다. (실습 02 의 뼈대)
+> 이 문서는 05 강좌의 LED 서버를 예로 **기능 추가**와 **버그 수정** 두 시나리오를 따라갑니다. (실습 02 의 뼈대)
 
 ## 1. 준비 — 안전망 먼저
 
 ```bash
-cp -r courses/06-web-server-python/examples/02-led-api ~/workspace/led-server   # 원본은 두고 복사본에서
+cp -r courses/05-web-server-python/examples/02-led-api ~/workspace/led-server   # 원본은 두고 복사본에서
 cd ~/workspace/led-server
-git init && git add . && git commit -m "06 LED 서버 시작점"                    # 되돌릴 기준점
+git init && git add . && git commit -m "05 LED 서버 시작점"                    # 되돌릴 기준점
 codex
 › /init                                                                          # AGENTS.md 초안 → 규칙 보강 (03 문서 예시)
 ```
@@ -130,10 +130,10 @@ NameError: name 'limit' is not defined
 
 | 연결 | 아이디어 |
 |------|----------|
-| **03 ESP32** | "`examples/06-wifi-led-client/src/main.cpp` 에 버튼(GPIO4)을 누르면 PUT /api/led 를 보내는 기능을 추가해줘" — PlatformIO 빌드로 검증 |
-| **04 웹** | 04 의 정적 LED 제어판을 `-i preview.png` 시안대로 새 디자인으로 다시 만들게 하기 (`examples/led-panel` 참고) |
-| **05 Python** | LED 이력 기록기에 `stats` 명령 추가, pytest 테스트 작성 |
-| **06 서버** | WebSocket 버전에 접속자 목록, 이력 push 추가 (실습 04 도전 과제를 에이전트와) |
+| **03 웹** | 03 의 정적 LED 제어판을 `-i preview.png` 시안대로 새 디자인으로 다시 만들게 하기 (`examples/led-panel` 참고) |
+| **04 Python** | LED 이력 기록기에 `stats` 명령 추가, pytest 테스트 작성 |
+| **05 서버** | WebSocket 버전에 접속자 목록, 이력 push 추가 (실습 04 도전 과제를 에이전트와) |
+| **06 ESP32** | "`examples/06-wifi-led-client/src/main.cpp` 에 버튼(GPIO4)을 누르면 PUT /api/led 를 보내는 기능을 추가해줘" — PlatformIO 빌드로 검증 |
 | **02 Git** | 커밋 메시지 작성, `codex review` 를 PR 전 셀프 리뷰로 |
 
 ## 정리

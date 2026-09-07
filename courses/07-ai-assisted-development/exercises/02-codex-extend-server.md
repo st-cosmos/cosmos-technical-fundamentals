@@ -1,7 +1,7 @@
 # 실습 02. Codex 로 LED 서버 확장하기 ★
 
 > [03. Codex 와 일하는 법](../docs/03-working-with-codex.md) 과 [04. 실전 워크플로우](../docs/04-practical-workflow.md) 를 먼저 읽으세요.
-> 06 강좌의 LED 서버(`examples/02-led-api`)를 재료로 씁니다. (06 을 안 했어도 따라갈 수 있지만, 했으면 훨씬 재미있습니다)
+> 05 강좌의 LED 서버(`examples/02-led-api`)를 재료로 씁니다. (05 를 안 했어도 따라갈 수 있지만, 했으면 훨씬 재미있습니다)
 
 ## 🎯 목표
 
@@ -13,18 +13,18 @@
 ## 🧰 준비
 
 - Codex CLI, uv, 브라우저
-- 06 강좌 예제 복사본 (원본은 건드리지 않음)
+- 05 강좌 예제 복사본 (원본은 건드리지 않음)
 
 ## 📝 단계별 따라하기
 
 ### 1단계 — 복사본 + git 안전망
 
 ```bash
-cp -r courses/06-web-server-python/examples/02-led-api ~/workspace/led-server    # 저장소 최상위에서
+cp -r courses/05-web-server-python/examples/02-led-api ~/workspace/led-server    # 저장소 최상위에서
 cd ~/workspace/led-server
 uv run uvicorn main:app --reload        # 원본이 동작하는지 먼저 확인 → Ctrl+C
 git init
-git add . && git commit -m "06 LED 서버 시작점"
+git add . && git commit -m "05 LED 서버 시작점"
 ```
 
 ### 2단계 — AGENTS.md
@@ -141,9 +141,9 @@ codex -s read-only "main.py 와 static/app.js 를 읽고 개선점 3가지만 �
 
 ## 🚀 더 해보기
 
-- 이력을 `history.json` 파일에 저장해 서버를 재시작해도 유지 (05 강좌 `json.dump`)
-- 06 실습 04 의 **WebSocket** 버전으로 바꾸기 — "polling 을 WebSocket 으로 바꿔줘, 06 강좌 examples/03-led-websocket 방식으로"
-- **ESP32**: 03 강좌 `examples/06-wifi-led-client` 를 복사해 "버튼(GPIO4)을 누르면 PUT /api/led 를 보내게 해줘" → PlatformIO 로 빌드
+- 이력을 `history.json` 파일에 저장해 서버를 재시작해도 유지 (04 강좌 `json.dump`)
+- 05 실습 04 의 **WebSocket** 버전으로 바꾸기 — "polling 을 WebSocket 으로 바꿔줘, 05 강좌 examples/03-led-websocket 방식으로"
+- **ESP32**: 06 강좌 `examples/06-wifi-led-client` 를 복사해 "버튼(GPIO4)을 누르면 PUT /api/led 를 보내게 해줘" → PlatformIO 로 빌드
 - 커밋 메시지·README 갱신도 에이전트에게: "변경 내용에 맞게 README 의 API 표를 갱신해줘"
 
 ## 🎓 마무리

@@ -44,9 +44,9 @@ PowerShell 7 · Git · VS Code · PlatformIO · Git Graph · Python · uv · Cod
 |------|-----------|:-------:|:-----:|
 | PowerShell 7 | 01-cli | ✅ | 기본 터미널 |
 | Git | 02-git | ✅ | 기본 포함 |
-| VS Code + **PlatformIO** · **Git Graph** 확장 | 전체 · 03 · 02 | ✅ | ✅ |
-| Python 3.12 | 05 · 06 | ✅ | 기본 포함 |
-| **uv** | 05 · 06 | ✅ | ✅ |
+| VS Code + **PlatformIO** · **Git Graph** 확장 | 전체 · 06 · 02 | ✅ | ✅ |
+| Python 3.12 | 04 · 05 | ✅ | 기본 포함 |
+| **uv** | 04 · 05 | ✅ | ✅ |
 | **Codex CLI** | 07-ai | ✅ | ✅ |
 
 > 💡 하나씩 사이트에서 받지 않고 **패키지 관리자**(winget / brew)로 한 번에 — 업데이트도 한 줄.

@@ -12,10 +12,10 @@
 | **터미널** (Windows: PowerShell 7) | 01-cli 부터 전부 | 개발 도구는 대부분 글자 명령으로 다룹니다. Windows 기본 5.1 보다 **7** 이 빠르고 macOS 와 명령이 비슷해 배우기 좋습니다 |
 | **Git** | 02-git, 그리고 모든 실습 | 코드의 변경 이력을 기록하고 GitHub 로 협업합니다 |
 | **VS Code** | 전 강좌 | 코드 편집기. 확장으로 ESP32·Git·Python 까지 한 곳에서 다룹니다 |
-| **PlatformIO** (VS Code 확장) | 03-esp32 | ESP32 에 코드를 컴파일·업로드합니다. 컴파일러·보드 정의를 자동 관리 |
+| **PlatformIO** (VS Code 확장) | 06-esp32 | ESP32 에 코드를 컴파일·업로드합니다. 컴파일러·보드 정의를 자동 관리 |
 | **Git Graph** (VS Code 확장) | 02-git | 커밋·브랜치를 **그래프로** 봐서 rebase·merge 를 눈으로 이해합니다 |
-| **Python 3.12** | 05-python, 06-web-server | 파이썬 프로그래밍과 FastAPI 웹서버 |
-| **uv** | 05-python, 06-web-server | 파이썬 **프로젝트·패키지·가상환경**을 하나로 관리. 동아리 표준 도구 (`pip`/`venv` 안 씀) |
+| **Python 3.12** | 04-python, 05-web-server | 파이썬 프로그래밍과 FastAPI 웹서버 |
+| **uv** | 04-python, 05-web-server | 파이썬 **프로젝트·패키지·가상환경**을 하나로 관리. 동아리 표준 도구 (`pip`/`venv` 안 씀) |
 | **Codex CLI** | 07-ai | 터미널에서 쓰는 AI 코딩 에이전트. 말로 시키면 코드를 만들고 고칩니다 |
 
 > 💡 **macOS 는 Python 과 Git 이 이미 있습니다.** Git 은 Xcode Command Line Tools 에, Python 3 은
