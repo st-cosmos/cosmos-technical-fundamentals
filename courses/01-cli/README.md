@@ -18,7 +18,7 @@
 ```
 01-cli/
 ├── docs/
-│   ├── 01-what-is-terminal.md        터미널이란? 프롬프트 읽기 · 기본 조작
+│   ├── 01-what-is-terminal.md        터미널·셸·OS 가 하는 일 · 프롬프트 읽기 · 명령의 생김새(프로그램·인자·옵션)
 │   ├── 02-navigating-folders.md      pwd · ls · cd · mkdir — 폴더(서랍장) 비유
 │   ├── 03-paths.md                   ★ 절대 경로 vs 상대 경로 — . .. ~ / \ 읽는 법
 │   └── 04-network-ip.md              ipconfig / ifconfig — 내 PC IP 확인
