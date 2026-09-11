@@ -162,10 +162,10 @@ digitalWrite(핀, HIGH / LOW);  // 출력
 
 ---
 
-## Blink — 내장 LED 깜빡이기
+## Blink — LED 깜빡이기
 
 ```cpp
-const int LED_PIN = 2;            // 내장 LED
+const int LED_PIN = 23;           // GPIO23 ─[220Ω]─▶|─ GND (내장 LED 는 2)
 void setup(){ pinMode(LED_PIN, OUTPUT); }
 void loop(){
   digitalWrite(LED_PIN, HIGH); delay(1000);
@@ -196,7 +196,7 @@ int v = digitalRead(BUTTON_PIN);
 ```
 
 - **플로팅** 문제(연결 안 된 핀은 값이 제멋대로) → 내부 풀업으로 평소 상태 고정
-- 배선: `GPIO4 ─[버튼]─ GND` (저항 불필요)
+- 배선: `GPIO22 ─[버튼]─ GND` (저항 불필요)
 
 > ⚠️ 풀업이라 **누르면 LOW** (로직 반대!) — 이 강좌에서 가장 많이 헷갈리는 것
 
@@ -339,7 +339,7 @@ if (Serial.available() > 0) {
    (켜기/끄기)               led={on,by}                 │
   ① WiFi.begin 연결                                       │
   ② 1초마다 GET /api/led ─────────────────────────────────▶
-  ③ 받은 on 값대로 내장 LED 켜기/끄기 (+ Serial)
+  ③ 받은 on 값대로 LED 켜기/끄기 (+ Serial)
 ```
 
 ```cpp
@@ -353,6 +353,30 @@ http.end();
 ```
 
 <div class="small">비밀정보(SSID/비번/주소)는 <code>config.h</code> 로 분리 → git 제외 · ESP32 는 <b>2.4GHz 만</b> · 서버는 05 강좌에서 만든 LED 서버를 <code>uv run … --host 0.0.0.0</code> 으로 띄움</div>
+
+---
+
+## WebSocket 버전 — 물어보지 않고 받는다 (examples/07)
+
+```
+[웹 페이지] ◀── ws ──▶ [LED 서버] ◀── ws ──▶ [ESP32]
+  클릭 → send            broadcast          버튼(GPIO22) → sendTXT
+  onmessage → 화면                          onWsEvent → LED(GPIO23)
+```
+
+```cpp
+WebSocketsClient ws;                              // lib_deps = links2004/WebSockets
+void onWsEvent(WStype_t type, uint8_t* payload, size_t len) {
+  if (type == WStype_TEXT) {                      // 서버가 push 한 {"on":true,...}
+    bool on = String((const char*)payload).indexOf("\"on\":true") >= 0;
+    digitalWrite(LED_PIN, on ? HIGH : LOW);
+  }
+}
+ws.begin(SERVER_HOST, 8000, "/ws"); ws.onEvent(onWsEvent);   // setup
+ws.loop();  /* 매번 */  ws.sendTXT("{\"on\":true,\"by\":\"ESP32\"}");  // 버튼 → 서버
+```
+
+> polling 은 **최대 1초 지연 + 빈 요청**, WebSocket 은 **즉시 + 변화 있을 때만**. `loop()` 에 긴 `delay` 금지 — `ws.loop()` 가 계속 돌아야 함
 
 ---
 
@@ -371,6 +395,7 @@ http.end();
 - **PWM** `analogWrite(0~255)` · **아날로그 입력** `analogRead(34)` + `map`
 - **Serial**: 출력으로 디버깅, 입력으로 제어, 115200
 - **WiFi + GET** 으로 웹서버 LED 따라 켜기 — 웹과 하드웨어가 한 서버를 공유
+- **WebSocket** 으로 즉시 반영 + 버튼으로 서버 상태 바꾸기 — 브라우저 ↔ 서버 ↔ 보드 실시간
 
 <span class="small">자세한 내용은 docs/, 직접 해보기는 exercises/ + examples/</span>
 
@@ -386,6 +411,6 @@ http.end();
 
 <div class="rule"></div>
 
-<div class="subtitle">exercises/ — LED → 버튼 → PWM → 가변저항 → Serial → WiFi 순서로</div>
+<div class="subtitle">exercises/ — LED → 버튼 → PWM → 가변저항 → Serial → WiFi → WebSocket 순서로</div>
 
 <div class="brand">COSMOS TECHNICAL FUNDAMENTALS</div>

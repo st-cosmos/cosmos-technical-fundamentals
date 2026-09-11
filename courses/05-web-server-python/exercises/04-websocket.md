@@ -144,7 +144,7 @@ ESP32([06 강좌 docs/08](../../06-esp32-programming/docs/08-wifi-http-client.md
 1. **접속자 수 표시**: `len(clients)` 를 상태에 넣어(`{"...", "viewers": 3}`) 화면에 "현재 3명 보고 있음"
 2. **이력 함께 push**: 서버가 `history` 리스트(최근 10건)도 같이 보내고, 03 강좌처럼 `<ul>` 에 표시
 3. **입장 알림**: 누가 접속하면 모두에게 `{"type": "join", ...}` 메시지 — 메시지에 `type` 필드를 두고 분기
-4. **ESP32 를 WebSocket 클라이언트로**: `ArduinoWebsockets` 라이브러리로 polling 없이 즉시 반영 (심화)
+4. **ESP32 를 WebSocket 클라이언트로**: polling 없이 즉시 반영 — 06 강좌 [docs/09](../../06-esp32-programming/docs/09-wifi-websocket-client.md) · `examples/07-wifi-led-websocket` 에서 합니다
 
 ## 🎓 마무리
 

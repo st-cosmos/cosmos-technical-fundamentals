@@ -44,4 +44,4 @@ F12 → Network → **WS** → `ws` 클릭 → **Messages** 에서 ↑(보냄) �
 | 서버 → 브라우저 | `{"on": true, "by": "철수", "time": "14:03:05", "viewers": 2}` (접속 직후·변경 시·접속자 수 변동 시) |
 | 브라우저 → 서버 | `{"on": true, "by": "철수"}` (버튼 클릭) |
 
-관련 실습: [`../../exercises/04-websocket.md`](../../exercises/04-websocket.md)
+관련 실습: [`../../exercises/04-websocket.md`](../../exercises/04-websocket.md) · ESP32 쪽 클라이언트: 06 강좌 `examples/07-wifi-led-websocket`

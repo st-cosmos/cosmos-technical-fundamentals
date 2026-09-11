@@ -43,7 +43,8 @@
 3. 🔌 `docs/03` + **`exercises/02`** — **API** GET/PUT, `/docs` 테스트
 4. 🔁 `docs/04` + **`exercises/03`** — fetch/PUT/polling 으로 두 창 동기화 ★
 5. ⚡ `docs/05` + **`exercises/04`** — **WebSocket** 으로 즉시 반영 ★
-6. 🔗 다음 06 강좌 [docs/08](../06-esp32-programming/docs/08-wifi-http-client.md) 에서 ESP32 가 **바로 이 서버**에 붙어 실제 LED 를 켭니다
+6. 🔗 다음 06 강좌 [docs/08](../06-esp32-programming/docs/08-wifi-http-client.md) 에서 ESP32 가 **바로 이 서버**(02)에 붙어 실제 LED 를 켜고,
+   [docs/09](../06-esp32-programming/docs/09-wifi-websocket-client.md) 에서는 03 의 WebSocket 서버에 붙어 즉시 반영됩니다
 
 ## 예제 실행
 

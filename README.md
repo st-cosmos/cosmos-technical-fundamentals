@@ -12,7 +12,7 @@
 | 03 | [web-application](courses/03-web-application/) | HTML · CSS · JavaScript · **주요 태그/문법 치트시트** | LED 제어판 (정적) |
 | 04 | [python-programming](courses/04-python-programming/) | **uv** 사용법 · Python 기초 문법 요약 | uv 프로젝트 2개 |
 | 05 | [web-server-python](courses/05-web-server-python/) | FastAPI · **정적 파일 호스팅 · REST API · WebSocket** | FastAPI 서버 3개 |
-| 06 | [esp32-programming](courses/06-esp32-programming/) | 디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial · **WiFi 로 05 서버에 연결** | PlatformIO 프로젝트 6개 |
+| 06 | [esp32-programming](courses/06-esp32-programming/) | 디지털 출력 · 디지털 입력 · PWM · 아날로그 입력 · Serial · **WiFi 로 05 서버에 연결**(HTTP polling → WebSocket) | PlatformIO 프로젝트 7개 |
 | 07 | [ai-assisted-development](courses/07-ai-assisted-development/) | 에이전트 코딩 · **Codex CLI** · AGENTS.md · 검토와 git | LED 제어판 참고본 |
 
 > 💡 **러닝 예제는 하나 — "LED 제어판".** 03 에서 화면(HTML/CSS/JS)을 만들고, 04 에서 콘솔 버전(딕셔너리·JSON)을 만들고,
