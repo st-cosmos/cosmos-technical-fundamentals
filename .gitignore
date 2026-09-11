@@ -22,6 +22,9 @@ venv/
 .pio/
 .pioenvs/
 .piolibdeps/
+# PlatformIO 가 예제 프로젝트를 열 때마다 자동 생성하는 파일 (루트 .vscode 의 예외 규칙과 별개)
+courses/*/examples/*/.vscode/
+courses/*/examples/*/.gitignore
 # WiFi 비밀정보 — 절대 커밋 금지 (config.example.h 만 공유)
 config.h
 
