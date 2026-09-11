@@ -135,21 +135,21 @@ pio device monitor       # Serial Monitor (종료: Ctrl+C)
 ## 6. 첫 동작 확인용 코드
 
 새 프로젝트의 `src/main.cpp` 를 아래로 바꾸고 **업로드 → Serial 모니터**를 열어 보세요.
-1초마다 메시지가 찍히고 내장 LED가 깜빡이면 환경 설정이 완벽히 끝난 것입니다. 🎉
+1초마다 메시지가 찍히고 GPIO23 에 연결한 LED 가 깜빡이면 환경 설정이 완벽히 끝난 것입니다. 🎉
 
 ```cpp
 #include <Arduino.h>
 
 void setup() {
   Serial.begin(115200);
-  pinMode(2, OUTPUT);   // GPIO2 = 내장 LED
+  pinMode(23, OUTPUT);  // GPIO23 = LED (내장 LED 를 쓰려면 2)
 }
 
 void loop() {
-  digitalWrite(2, HIGH);
+  digitalWrite(23, HIGH);
   Serial.println("안녕 ESP32!");
   delay(1000);
-  digitalWrite(2, LOW);
+  digitalWrite(23, LOW);
   delay(1000);
 }
 ```
@@ -158,6 +158,7 @@ void loop() {
 
 | 증상 | 원인 / 해결 |
 |------|------------|
+| 빌드가 `ModuleNotFoundError: No module named 'intelhex'` 로 실패 (`bootloader.bin` 만들다 멈춤) | ESP32 펌웨어를 굽는 esptool 이 쓰는 파이썬 모듈이 PlatformIO 내장 파이썬에 빠진 것. VS Code 하단 파란 바의 **터미널 아이콘(PlatformIO Core CLI)** 을 눌러 열리는 터미널에서 `python -m pip install intelhex` 실행 → 다시 Build. (PlatformIO Core 6.2 + espressif32 7.x 조합에서 발생) |
 | 보드가 포트에 안 잡힘 | ① 충전 전용 케이블 → 데이터 케이블로 교체 ② USB 드라이버 미설치 (3장) ③ (Linux) `dialout` 권한 |
 | 업로드 중 멈추거나 `Connecting...` 만 반복 | 업로드 시작될 때 보드의 **BOOT 버튼을 누르고 있기** → 진행되면 떼기 |
 | Serial 모니터가 외계어 | `monitor_speed` 와 `Serial.begin()` **속도 불일치** (둘 다 115200으로) |

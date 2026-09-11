@@ -83,7 +83,7 @@ Serial 모니터 입력창에 글자를 치면 ESP32가 받을 수 있습니다.
 ```cpp
 #include <Arduino.h>
 
-const int LED_PIN = 2;
+const int LED_PIN = 23;  // LED (내장 LED 를 쓰려면 2)
 
 void setup() {
   Serial.begin(115200);

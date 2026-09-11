@@ -49,15 +49,15 @@ digitalWrite(핀번호, HIGH);     // 3.3V 내보내기 (켜기)
 digitalWrite(핀번호, LOW);      // 0V (끄기)
 ```
 
-## 4. 예제 — 내장 LED 깜빡이기 (Blink)
+## 4. 예제 — LED 깜빡이기 (Blink)
 
-가장 유명한 첫 프로그램. 보드 내장 LED(**GPIO2**)를 1초 간격으로 깜빡입니다.
+가장 유명한 첫 프로그램. **GPIO23** 에 연결한 LED 를 1초 간격으로 깜빡입니다. (배선은 아래 5절 — 보드 내장 LED(GPIO2)로 해도 됩니다)
 (코드: `examples/01-digital-output/` · 실습: `exercises/01`)
 
 ```cpp
 #include <Arduino.h>
 
-const int LED_PIN = 2;   // GPIO2 = 보드 내장 LED
+const int LED_PIN = 23;  // GPIO23 에 연결한 LED (내장 LED 를 쓰려면 2)
 
 void setup() {
   Serial.begin(115200);
@@ -78,19 +78,19 @@ void loop() {
 
 | 요소 | 의미 |
 |------|------|
-| `const int LED_PIN = 2;` | 핀 번호에 **이름**을 붙여 둠. 나중에 핀을 바꿀 때 한 곳만 수정 |
+| `const int LED_PIN = 23;` | 핀 번호에 **이름**을 붙여 둠. 나중에 핀을 바꿀 때 한 곳만 수정 |
 | `delay(1000)` | 1000 밀리초(1초) 동안 **아무것도 안 하고 멈춤** |
 | `Serial.println(...)` | PC 화면(Serial 모니터)에 글자 출력 — [07](07-serial-communication.md) 에서 자세히 |
 
 > 💡 `delay()` 는 간단하지만 그동안 보드가 **아무 일도 못 합니다.** 버튼 입력을 동시에 받아야 하면 문제가 되는데,
 > 그 해결(`millis()`)은 [07](07-serial-communication.md) 예제에서 봅니다.
 
-## 5. 외부 LED 연결 (브레드보드)
+## 5. LED 연결 (브레드보드)
 
-내장 LED 말고 직접 LED를 붙이려면 **저항을 꼭 함께** 넣습니다. 저항이 없으면 과전류로 LED나 핀이 손상될 수 있습니다.
+이 강좌의 예제는 **GPIO23** 에 LED 를 연결해 씁니다. LED 를 붙일 때는 **저항을 꼭 함께** 넣습니다. 저항이 없으면 과전류로 LED나 핀이 손상될 수 있습니다.
 
 ```
-GPIO 핀 ──[ 220Ω 저항 ]──▶|── GND
+GPIO23 ──[ 220Ω 저항 ]──▶|── GND
                           LED
                        (긴 다리 +, 짧은 다리 -)
 ```
@@ -127,7 +127,7 @@ ESP32 핀은 대부분 자유롭게 쓸 수 있지만, 몇 가지 예외가 있�
 | GPIO0, 2, 15 | 부팅(BOOT) 모드에 관여 — 일반 입출력은 가능하나 부팅 시 상태 주의 |
 | GPIO2 | 보드 내장 LED |
 
-> 💡 **무난한 선택**: 출력엔 GPIO2(내장 LED)·GPIO4·GPIO5, 입력엔 GPIO4 등을 쓰면 입문 단계에서 탈 없이 동작합니다.
+> 💡 **무난한 선택**: 출력엔 GPIO23(이 강좌의 LED)·GPIO2(내장 LED)·GPIO4·GPIO5, 입력엔 GPIO22(이 강좌의 버튼)·GPIO4 등을 쓰면 입문 단계에서 탈 없이 동작합니다.
 
 ## 정리
 

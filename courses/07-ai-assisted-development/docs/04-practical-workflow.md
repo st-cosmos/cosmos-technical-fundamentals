@@ -133,7 +133,7 @@ NameError: name 'limit' is not defined
 | **03 웹** | 03 의 정적 LED 제어판을 `-i preview.png` 시안대로 새 디자인으로 다시 만들게 하기 (`examples/led-panel` 참고) |
 | **04 Python** | LED 이력 기록기에 `stats` 명령 추가, pytest 테스트 작성 |
 | **05 서버** | WebSocket 버전에 접속자 목록, 이력 push 추가 (실습 04 도전 과제를 에이전트와) |
-| **06 ESP32** | "`examples/06-wifi-led-client/src/main.cpp` 에 버튼(GPIO4)을 누르면 PUT /api/led 를 보내는 기능을 추가해줘" — PlatformIO 빌드로 검증 |
+| **06 ESP32** | "`examples/06-wifi-led-client/src/main.cpp` 에 버튼(GPIO22)을 누르면 PUT /api/led 를 보내는 기능을 추가해줘" — PlatformIO 빌드로 검증 |
 | **02 Git** | 커밋 메시지 작성, `codex review` 를 PR 전 셀프 리뷰로 |
 
 ## 정리

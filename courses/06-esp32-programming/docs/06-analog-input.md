@@ -82,7 +82,7 @@ int percent = map(raw, 0, 4095, 0, 100);   // → 퍼센트
 #include <Arduino.h>
 
 const int POT_PIN = 34;   // 가변저항 가운데 다리 (입력 전용 핀, ADC1)
-const int LED_PIN = 5;    // PWM 출력으로 밝기 조절할 LED
+const int LED_PIN = 23;   // PWM 출력으로 밝기 조절할 LED
 
 void setup() {
   Serial.begin(115200);
@@ -102,7 +102,7 @@ void loop() {
 }
 ```
 
-배선: 가변저항(3.3V·GND·GPIO34) + LED(`GPIO5 ──[220Ω]──▶|── GND`)
+배선: 가변저항(3.3V·GND·GPIO34) + LED(`GPIO23 ──[220Ω]──▶|── GND`)
 
 > 📌 예제 코드에는 보너스로 `dacWrite(25, duty)` 한 줄이 더 있습니다. 멀티미터로 GPIO25 를 재면 진짜 전압이
 > 변하는 것을 볼 수 있습니다. (클래식 ESP32 만 — 신형 보드는 그 줄을 지우세요)

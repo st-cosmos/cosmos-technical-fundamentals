@@ -47,7 +47,7 @@ analogWrite(핀번호, 값);   // 0 = 항상 꺼짐, 255 = 항상 켜짐, 128 = 
 ```cpp
 #include <Arduino.h>
 
-const int LED_PIN = 5;   // 외부 LED (내장 GPIO2 도 가능)
+const int LED_PIN = 23;  // LED (내장 GPIO2 도 가능)
 
 void setup() {
   Serial.begin(115200);
@@ -68,7 +68,7 @@ void loop() {
 }
 ```
 
-배선은 [03](03-digital-output.md) 의 외부 LED 와 같습니다: `GPIO5 ──[220Ω]──▶|── GND`
+배선은 [03](03-digital-output.md) 의 외부 LED 와 같습니다: `GPIO23 ──[220Ω]──▶|── GND`
 
 > 💡 `delay(5)` 를 바꾸면 숨쉬는 속도가 변합니다. 256단계 × 5ms ≈ 1.3초에 한 번 밝아집니다.
 

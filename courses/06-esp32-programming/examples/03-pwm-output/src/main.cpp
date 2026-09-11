@@ -3,10 +3,10 @@
 // analogWrite(핀, 0~255) 는 진짜 중간 전압이 아니라, 빠른 켜짐/꺼짐 반복의 평균(듀티)이다.
 // 관련 문서: docs/05-pwm-output.md / 실습: exercises/03-pwm-fade.md
 //
-// 배선: GPIO5 ──[220Ω]──▶|── GND   (LED 긴 다리가 저항 쪽) — 내장 LED(GPIO2)로도 가능
+// 배선: GPIO23 ──[220Ω]──▶|── GND   (LED 긴 다리가 저항 쪽) — 내장 LED(GPIO2)로도 가능
 #include <Arduino.h>
 
-const int LED_PIN = 5;        // PWM 으로 밝기 조절할 LED
+const int LED_PIN = 23;        // PWM 으로 밝기 조절할 LED
 const int STEP_DELAY_MS = 5;  // 한 단계마다 기다리는 시간 (작을수록 빨리 숨 쉼)
 
 void setup() {

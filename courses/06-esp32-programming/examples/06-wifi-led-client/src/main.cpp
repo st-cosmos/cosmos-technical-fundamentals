@@ -1,6 +1,6 @@
 // 06-wifi-led-client — WiFi 연결 + LED 상태 서버에 HTTP GET 요청
 // WiFi에 접속한 뒤, 1초마다 로컬 서버의 /api/led 에 GET 요청을 보내고
-// 받은 상태(on/off)대로 내장 LED를 켜고 끈다. (Serial 모니터에도 출력)
+// 받은 상태(on/off)대로 LED(GPIO23)를 켜고 끈다. (Serial 모니터에도 출력)
 //
 // 이 서버는 05-web-server-python 강좌에서 만든 것과 같은 LED 서버다. 즉 브라우저의
 // 웹 페이지에서 켜기/끄기를 누르면, 이 ESP32 보드가 그 상태를 읽어 실제 LED를 켠다.
@@ -13,9 +13,9 @@
 #include <HTTPClient.h>
 #include "config.h"   // WIFI_SSID, WIFI_PASSWORD, SERVER_URL 정의
 
-const int LED_PIN = 2;  // 내장 LED (보드에 따라 다르면 바꾸기)
+const int LED_PIN = 23; // LED: GPIO23 ──[220Ω]──▶|── GND (내장 LED 를 쓰려면 2)
 
-// 서버에서 LED 상태를 받아와 내장 LED에 반영한다.
+// 서버에서 LED 상태를 받아와 LED에 반영한다.
 void pollLed() {
   HTTPClient http;
   http.begin(String(SERVER_URL) + "/api/led");

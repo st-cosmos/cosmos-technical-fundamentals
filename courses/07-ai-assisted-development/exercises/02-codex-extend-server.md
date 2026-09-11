@@ -143,7 +143,7 @@ codex -s read-only "main.py 와 static/app.js 를 읽고 개선점 3가지만 �
 
 - 이력을 `history.json` 파일에 저장해 서버를 재시작해도 유지 (04 강좌 `json.dump`)
 - 05 실습 04 의 **WebSocket** 버전으로 바꾸기 — "polling 을 WebSocket 으로 바꿔줘, 05 강좌 examples/03-led-websocket 방식으로"
-- **ESP32**: 06 강좌 `examples/06-wifi-led-client` 를 복사해 "버튼(GPIO4)을 누르면 PUT /api/led 를 보내게 해줘" → PlatformIO 로 빌드
+- **ESP32**: 06 강좌 `examples/06-wifi-led-client` 를 복사해 "버튼(GPIO22)을 누르면 PUT /api/led 를 보내게 해줘" → PlatformIO 로 빌드
 - 커밋 메시지·README 갱신도 에이전트에게: "변경 내용에 맞게 README 의 API 표를 갱신해줘"
 
 ## 🎓 마무리

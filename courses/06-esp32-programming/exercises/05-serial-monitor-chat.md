@@ -7,7 +7,7 @@
 
 ## 준비물
 
-- ESP32 DevKit + USB 케이블 (부품 불필요, **내장 LED** 사용)
+- ESP32 DevKit + USB 케이블 (LED 는 실습 01 과 같이 **GPIO23**, 없으면 내장 LED 로 `LED_PIN = 2`)
 
 ## 1. 업로드 & 모니터 열기
 
@@ -19,8 +19,8 @@
 
 Serial 모니터 **위쪽 입력창**에 글자를 치고 Enter:
 
-- `on` 입력 → 내장 LED 켜짐, `-> LED 켜짐` 응답
-- `off` 입력 → 내장 LED 꺼짐, `-> LED 꺼짐` 응답
+- `on` 입력 → LED 켜짐, `-> LED 켜짐` 응답
+- `off` 입력 → LED 꺼짐, `-> LED 꺼짐` 응답
 - 아무거나 → `-> 알 수 없는 명령: ...`
 
 > ⚠️ **줄 끝(line ending) 설정 주의**: 코드가 `readStringUntil('\n')` 로 한 줄을 읽습니다.

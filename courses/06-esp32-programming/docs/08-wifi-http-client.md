@@ -7,7 +7,7 @@
 ## 한 줄 요약
 
 > ESP32 를 `WiFi.begin()` 으로 공유기에 연결한 뒤, `HTTPClient` 로 **LED 서버에 `GET /api/led`** 를 보내고 받은 상태대로
-> **내장 LED 를 켜고 끕니다.** 웹 페이지에서 켠 LED 를 이 보드가 그대로 따라 켭니다. WiFi 비밀번호는 `config.h` 로
+> **LED(GPIO23) 를 켜고 끕니다.** 웹 페이지에서 켠 LED 를 이 보드가 그대로 따라 켭니다. WiFi 비밀번호는 `config.h` 로
 > 분리해 **git 에 올리지 않습니다.**
 
 ## 1. 전체 그림
@@ -20,7 +20,7 @@ ESP32 는 웹 페이지와 똑같이 "서버를 보는 하나의 클라이언트
                                                                           │
   ① WiFi.begin 으로 공유기 접속                                            │
   ② 1초마다 GET /api/led 요청 ────────────────────────────────────────────▶
-  ③ 받은 on 값대로 내장 LED 켜기/끄기  (+ Serial 모니터에 출력)
+  ③ 받은 on 값대로 LED 켜기/끄기  (+ Serial 모니터에 출력)
 ```
 
 서버는 05 강좌의 `examples/02-led-api` 를 그대로 실행합니다. (아래 6절)
@@ -89,7 +89,7 @@ cp config.example.h config.h     # Windows PowerShell 도 cp 가 됩니다
 #include <HTTPClient.h>
 #include "config.h"
 
-const int LED_PIN = 2;  // 내장 LED
+const int LED_PIN = 23; // LED: GPIO23 ──[220Ω]──▶|── GND
 
 void pollLed() {
   HTTPClient http;
@@ -169,6 +169,7 @@ uv run uvicorn main:app --host 0.0.0.0 --port 8000
 - 버튼([04](04-digital-input.md))을 눌러 **`PUT /api/led` 로 상태를 바꾸기** — ESP32 도 쓰기 클라이언트로
 - `ArduinoJson` 으로 응답 JSON 제대로 파싱하기
 - 가변저항([06](06-analog-input.md)) 값을 서버에 올려 웹 페이지에 그래프로 보이기
-- 05 강좌의 **WebSocket** 버전 서버에 붙이기 (polling 없이 즉시 반영)
+- 05 강좌의 **WebSocket** 버전 서버에 붙이기 (polling 없이 즉시 반영) → 다음 문서 [09](09-wifi-websocket-client.md) 에서 합니다
 
 ➡️ 실습: [`exercises/06-wifi-led-client.md`](../exercises/06-wifi-led-client.md)
+➡️ 다음: [09. WiFi + WebSocket](09-wifi-websocket-client.md)

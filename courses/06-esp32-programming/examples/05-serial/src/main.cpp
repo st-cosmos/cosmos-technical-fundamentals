@@ -5,7 +5,7 @@
 // 사용법: 업로드 후 Serial 모니터에서 on 또는 off 입력 (줄 끝 = Newline/LF).
 #include <Arduino.h>
 
-const int LED_PIN = 2;
+const int LED_PIN = 23;  // LED: GPIO23 ──[220Ω]──▶|── GND (내장 LED 를 쓰려면 2)
 
 unsigned long lastTick = 0;   // 마지막으로 시간 출력한 시각
 

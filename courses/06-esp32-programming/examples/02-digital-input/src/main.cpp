@@ -4,8 +4,8 @@
 // 관련 문서: docs/04-digital-input.md / 실습: exercises/02-button-led-control.md
 #include <Arduino.h>
 
-const int LED_PIN = 2;      // 내장 LED
-const int BUTTON_PIN = 4;   // 버튼: 한쪽은 GPIO4, 다른 쪽은 GND
+const int LED_PIN = 23;     // LED: GPIO23 ──[220Ω]──▶|── GND
+const int BUTTON_PIN = 22;  // 버튼: 한쪽은 GPIO22, 다른 쪽은 GND
 
 int lastButton = HIGH;      // 직전 버튼 상태 (풀업이라 평소 HIGH)
 int pressCount = 0;         // 누른 횟수

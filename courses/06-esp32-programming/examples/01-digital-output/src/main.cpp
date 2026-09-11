@@ -1,9 +1,9 @@
 // 01-blink — 디지털 출력 (Digital Output)
-// 내장 LED(GPIO2)를 1초 간격으로 깜빡인다. ESP32 첫 동작 확인용.
+// GPIO23 에 연결한 LED를 1초 간격으로 깜빡인다. ESP32 첫 동작 확인용.
 // 관련 문서: docs/03-digital-output.md / 실습: exercises/01-blink-led.md
 #include <Arduino.h>
 
-const int LED_PIN = 2;   // GPIO2 = 보드 내장 LED
+const int LED_PIN = 23;   // LED: GPIO23 ──[220Ω]──▶|── GND  (보드 내장 LED 를 쓰려면 2)
 
 void setup() {
   Serial.begin(115200);

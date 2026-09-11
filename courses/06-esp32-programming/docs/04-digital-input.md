@@ -39,9 +39,9 @@ pinMode(BUTTON_PIN, INPUT_PULLUP);
 ### 버튼 배선
 
 ```
-GPIO4 ──┐
-        [버튼]
-GND ────┘
+GPIO22 ──┐
+         [버튼]
+GND ─────┘
 ```
 
 별도 저항 없이 한쪽은 GPIO, 다른 쪽은 GND 에 연결하면 됩니다. (내부 풀업이 저항 역할)
@@ -51,8 +51,8 @@ GND ────┘
 ```cpp
 #include <Arduino.h>
 
-const int LED_PIN = 2;
-const int BUTTON_PIN = 4;
+const int LED_PIN = 23;     // LED: GPIO23 ──[220Ω]──▶|── GND
+const int BUTTON_PIN = 22;  // 버튼: GPIO22 ── GND
 
 void setup() {
   pinMode(LED_PIN, OUTPUT);
@@ -116,8 +116,8 @@ if (lastButton == HIGH && button == LOW) {
 ```cpp
 #include <Arduino.h>
 
-const int LED_PIN = 2;
-const int BUTTON_PIN = 4;
+const int LED_PIN = 23;     // LED: GPIO23 ──[220Ω]──▶|── GND
+const int BUTTON_PIN = 22;  // 버튼: GPIO22 ── GND
 
 int lastButton = HIGH;
 int pressCount = 0;

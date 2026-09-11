@@ -85,6 +85,7 @@ WiFi.begin("우리집_WiFi", "비밀번호");
 - **GPIO 핀**: General Purpose Input/Output. **우리가 LED·버튼·센서를 연결하는 곳.**
   ([03](03-digital-output.md)부터 본격적으로 다룹니다.)
 - **내장 LED**: 보통 **GPIO2**에 연결돼 있어, 부품 없이도 첫 실습이 가능합니다.
+  (이 강좌의 예제는 **GPIO23 에 연결한 LED** 를 기본으로 쓰고, 내장 LED 로 하려면 `LED_PIN` 을 2 로 바꿉니다)
 
 ## 5. ESP32로 뭘 만들 수 있나요?
 

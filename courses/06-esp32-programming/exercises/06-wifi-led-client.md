@@ -1,7 +1,7 @@
 # 실습 06. WiFi 로 웹서버의 LED 따라 켜기 ★
 
 > 🎯 목표: ESP32 를 WiFi 에 연결하고, **내 PC 에 띄운 LED 서버**에 **`GET /api/led`** 를 보내 받은 상태대로
-> **내장 LED 를 켜고 끈다.** 브라우저에서 켜기/끄기를 누르면 ESP32 의 LED 가 따라 켜지는, 이 강좌의 대미.
+> **LED(GPIO23) 를 켜고 끈다.** 브라우저에서 켜기/끄기를 누르면 ESP32 의 LED 가 따라 켜지는, 이 강좌의 대미.
 >
 > 📎 관련 문서: [docs/08-wifi-http-client.md](../docs/08-wifi-http-client.md) · 펌웨어: `examples/06-wifi-led-client/` ·
 > 서버: `courses/05-web-server-python/examples/02-led-api/`
@@ -20,7 +20,7 @@
    (켜기/끄기)                                                    │
    ① ESP32가 WiFi 연결                                            │
    ② 1초마다 GET /api/led ────────────────────────────────────────▶
-   ③ 받은 on 값대로 내장 LED 켜기/끄기 (+ Serial 출력)
+   ③ 받은 on 값대로 LED 켜기/끄기 (+ Serial 출력)
 ```
 
 ## 1단계. LED 서버 띄우기 (PC 에서)
@@ -66,7 +66,7 @@ cp config.example.h config.h
 
 1. `examples/06-wifi-led-client` 폴더 열기 → **Upload**
 2. **Serial Monitor** 를 열어 두고, PC 브라우저에서 `http://localhost:8000` 의 **켜기** 를 누릅니다.
-3. 1초 안에 **ESP32 의 내장 LED 가 켜지고**, Serial 모니터에도 다음처럼 나오면 성공 🎉
+3. 1초 안에 **ESP32 의 LED(GPIO23) 가 켜지고**, Serial 모니터에도 다음처럼 나오면 성공 🎉
 
 ```
 WiFi 연결 중....
@@ -80,9 +80,9 @@ WiFi 연결 중....
 
 ## 직접 해보기 (도전 과제)
 
-1. **외부 LED**: GPIO2 대신 다른 핀에 저항+LED 를 달고 `LED_PIN` 을 바꿔 제어.
+1. **내장 LED 로**: `LED_PIN` 을 2 로 바꿔 보드 내장 LED 로 제어해 보기.
 2. **요청 주기 바꾸기**: `delay(1000)` 을 200~2000 사이로 조절해 반응 속도 비교.
-3. **ESP32 도 쓰기 클라이언트로**: 버튼(GPIO4, 실습 02)을 눌러 `PUT /api/led` 로 상태를 바꿔 보기.
+3. **ESP32 도 쓰기 클라이언트로**: 버튼(GPIO22, 실습 02)을 눌러 `PUT /api/led` 로 상태를 바꿔 보기.
    웹 페이지의 "누가 바꿨는지" 에 `ESP32` 가 뜨게. (힌트: `http.addHeader("Content-Type","application/json")`,
    `http.PUT("{\"on\":true,\"by\":\"ESP32\"}")`)
 
@@ -93,7 +93,7 @@ WiFi 연결 중....
 | `WiFi 연결 중....` 에서 멈춤 | SSID/비번 오타, **5GHz** 가 아닌지 → 핫스팟으로 |
 | 상태코드 음수/실패 | 서버를 `--host 0.0.0.0` 으로 띄웠는지, `SERVER_URL` IP·포트 정확한지, **방화벽** |
 | 브라우저는 되는데 ESP32 만 실패 | PC 방화벽이 8000 포트 인바운드 차단 → 허용 |
-| LED 가 안 켜짐 | 웹에서 **켜기** 를 눌렀는지, `LED_PIN`(2)이 보드 내장 LED 맞는지 |
+| LED 가 안 켜짐 | 웹에서 **켜기** 를 눌렀는지, `LED_PIN`(23) 배선과 LED 방향이 맞는지 |
 | `config.h` 없음 컴파일 에러 | 3단계 복사 안 함 |
 
 ## 🎓 마무리
@@ -101,3 +101,5 @@ WiFi 연결 중....
 축하합니다! ESP32 의 핵심 한 바퀴 — **GPIO 입출력 · PWM · 아날로그 · Serial · WiFi 통신** — 을 모두 직접 해봤습니다.
 특히 마지막엔 **웹 페이지로 켠 LED 를 실제 보드가 따라 켜는** 걸 만들어, 웹과 하드웨어가 같은 서버로 이어진다는 걸
 눈으로 확인했습니다.
+
+➡️ 다음 실습: [07. WebSocket 으로 즉시 반영 + 버튼으로 서버 바꾸기](07-wifi-led-websocket.md) ★
